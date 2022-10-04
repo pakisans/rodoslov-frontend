@@ -1,0 +1,6 @@
+.login-form {
+    @extend .flex-column;
+    .submit-button {
+        margin-top: 20px;
+    }
+}

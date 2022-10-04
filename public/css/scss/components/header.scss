@@ -1,0 +1,40 @@
+.header {
+    width: 100%;
+    background-color: rgba($color: $white, $alpha: 0.5);
+    border-radius: 10px;
+    .nav-bar {
+        background-image: url('/images/header-background.jpeg');
+        padding: 0 50px;
+        border-radius: 10px;
+        @extend .flex-space-between-align-center;
+        .arrow-down {
+            width: 20px;
+            height: 20px;
+        }
+        .middle-group {
+            display: flex;
+            align-items: center;
+            img {
+                width: 40px;
+                height: 40px;
+                opacity: 0.3;
+                border-radius: 30px;
+            }
+        }
+
+        .header-title {
+            color: black;
+            font-family: 'Aeonik';
+            font-size: 32px;
+            text-transform: uppercase;
+            margin: 0 20px;
+        }
+    }
+
+    .nav-bar .arrow-down:first-child {
+        margin-left: 20px;
+    }
+    .nav-bar .arrow-down:last-child {
+        margin-right: 20px;
+    }
+}

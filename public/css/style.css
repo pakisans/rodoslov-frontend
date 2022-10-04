@@ -1,0 +1,306 @@
+body {
+  margin: 0 !important;
+  overflow-x: hidden;
+  font-family: "Open Sans";
+  font-size: 12px;
+  background-image: url("/images/background.webp");
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.main-container {
+  width: 100vw;
+}
+
+.content-container {
+  display: flex;
+  width: 100vw;
+}
+
+.submit-button {
+  border: 1px solid #fff !important;
+  color: #fff !important;
+  border-radius: 15px !important;
+}
+.submit-button:hover {
+  background-color: rgb(138, 128, 14) !important;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.MuiFormHelperText-root {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+
+.flex-center, #root {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-align-center, .admin-nav.active .help-panel {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center-align-center, .welcome-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column, .register-form, .login-form, .main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-center-align, .sign-up, .login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-column-center-align-center, .admin-nav, .navigation-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-space-between-align-center, .header .nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/fonts/Aeonik/AeonikPro-Regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NotoSerif";
+  src: url("/fonts/NotoSerif/NotoSerif-Regular.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+.welcome-page {
+  width: 100%;
+  height: 100vh;
+}
+.welcome-page .text {
+  color: #fff;
+  font-size: 32px;
+}
+
+.login {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.2s;
+  background-color: #000;
+  width: 400px;
+  border-radius: 30px;
+  padding: 64px 24px;
+}
+.login .title {
+  color: #fff;
+  font-size: 24px;
+}
+.login .login-form {
+  width: 70%;
+}
+
+.sign-up {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.2s;
+  background-color: #000;
+  width: 400px;
+  border-radius: 30px;
+  padding: 64px 24px;
+}
+.sign-up .title {
+  color: #fff;
+  font-size: 24px;
+}
+.sign-up .login-form {
+  width: 70%;
+}
+
+.navigation-menu {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 12%;
+  height: 200px;
+  margin-top: 5px;
+  margin-left: 5px;
+  justify-content: unset;
+  z-index: 1;
+  position: absolute;
+  border-radius: 20px;
+}
+.navigation-menu.active {
+  display: block;
+}
+.navigation-menu .nav-item {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: NotoSerif;
+  font-size: 22px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.navigation-menu .nav-item:hover {
+  font-weight: 500;
+  color: #fff;
+  width: 100%;
+  cursor: pointer;
+  background-color: rgba(208, 169, 11, 0.5);
+}
+
+.admin-nav {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 12%;
+  height: 200px;
+  margin-top: 5px;
+  right: 0;
+  margin-right: 5px;
+  justify-content: unset;
+  z-index: 1;
+  position: absolute;
+  border-radius: 20px;
+}
+.admin-nav.active {
+  display: flex;
+}
+.admin-nav.active .help-panel {
+  margin-top: 10px;
+}
+.admin-nav.active .help-panel:hover {
+  font-weight: 500;
+  color: #fff;
+  width: 100%;
+  cursor: pointer;
+  background-color: rgba(208, 169, 11, 0.5);
+}
+.admin-nav.active .help-panel img {
+  width: 30px;
+  height: 30px;
+}
+.admin-nav.active .help-panel .logout-icon {
+  transform: rotate(180deg);
+}
+.admin-nav .nav-item {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: NotoSerif;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+}
+.admin-nav .nav-item:hover {
+  font-weight: 500;
+  color: #fff;
+  width: 100%;
+  cursor: pointer;
+  background-color: rgba(208, 169, 11, 0.5);
+}
+
+.header {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+.header .nav-bar {
+  background-image: url("/images/header-background.jpeg");
+  padding: 0 50px;
+  border-radius: 10px;
+}
+.header .nav-bar .arrow-down {
+  width: 20px;
+  height: 20px;
+}
+.header .nav-bar .middle-group {
+  display: flex;
+  align-items: center;
+}
+.header .nav-bar .middle-group img {
+  width: 40px;
+  height: 40px;
+  opacity: 0.3;
+  border-radius: 30px;
+}
+.header .nav-bar .header-title {
+  color: black;
+  font-family: "Aeonik";
+  font-size: 32px;
+  text-transform: uppercase;
+  margin: 0 20px;
+}
+.header .nav-bar .arrow-down:first-child {
+  margin-left: 20px;
+}
+.header .nav-bar .arrow-down:last-child {
+  margin-right: 20px;
+}
+
+.middle-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 94vh;
+  justify-content: center;
+  background-size: cover;
+  background-image: url("/images/rsz_paper-real-background.jpg");
+  opacity: 0.6;
+}
+
+.login-form .submit-button {
+  margin-top: 20px;
+}
+
+.register-form {
+  width: 70%;
+}
+.register-form .submit-button {
+  margin-top: 20px;
+}
+
+.text-field-control {
+  background-color: #fff;
+  border-radius: 30px;
+}
+.text-field-control .MuiInput-root {
+  padding: 0px 20px;
+}
+
+/*# sourceMappingURL=style.css.map */

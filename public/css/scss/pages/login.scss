@@ -1,0 +1,16 @@
+.login {
+    @include fade-in;
+    @extend .flex-column-center-align;
+    background-color: $black;
+    width: 400px;
+    border-radius: 30px;
+    padding: 64px 24px;
+    .title {
+        color: $white;
+        font-size: 24px;
+    }
+
+    .login-form {
+        width: 70%;
+    }
+}
