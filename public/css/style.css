@@ -37,6 +37,11 @@ a {
   background-color: rgb(138, 128, 14) !important;
 }
 
+.error-message {
+  color: rgb(255, 0, 0);
+  font-size: 16px;
+}
+
 @keyframes fadeInOpacity {
   0% {
     opacity: 0;
@@ -254,10 +259,10 @@ a {
   align-items: center;
 }
 .header .nav-bar .middle-group img {
-  width: 40px;
-  height: 40px;
-  opacity: 0.3;
+  width: 50px;
+  height: 50px;
   border-radius: 30px;
+  filter: gray saturate(0%) brightness(70%) contrast(1000%);
 }
 .header .nav-bar .header-title {
   color: black;
@@ -284,15 +289,21 @@ a {
   opacity: 0.6;
 }
 
+.login-form {
+  align-items: center;
+}
 .login-form .submit-button {
+  width: 100%;
   margin-top: 20px;
 }
 
 .register-form {
   width: 70%;
+  align-items: center;
 }
 .register-form .submit-button {
   margin-top: 20px;
+  width: 100%;
 }
 
 .text-field-control {

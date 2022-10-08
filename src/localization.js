@@ -9,7 +9,10 @@ let strings = new LocalizedStrings({
             registratoin: 'Registracija',
             adminPanel: {
                 addFamily: 'Dodaj familiju',
-            }
+            },
+            navigation: 'Navigation',
+            title: 'Rodoslov',
+            panel: 'User panel'
         },
         pages: {
             welcomePage:{
@@ -34,14 +37,17 @@ let strings = new LocalizedStrings({
                     username: 'Email',
                     password: 'Lozinka',
                     registration: 'Registrujte se',
-                    login: 'Prijava'
+                    login: 'Prijava',
+                    invalidCreds: 'Uneti podaci nisu tacni'
                 },
                 registerForm: {
                     username: 'Email',
                     password: 'Lozinka',
                     repeatPassword: 'Ponovite Lozinku',
                     email: 'Email',
-                    register: 'Registrujte se'
+                    register: 'Registrujte se',
+                    repeatPasswordError: 'Lozinke se ne poklapaju',
+                    userExist: 'Korisnik vec postoji'
                 }
             },
         }

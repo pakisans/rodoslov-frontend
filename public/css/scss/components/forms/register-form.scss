@@ -1,7 +1,9 @@
 .register-form {
     width: 70%;
     @extend .flex-column;
+    align-items: center;
     .submit-button {
         margin-top: 20px;
+        width: 100%;
     }
 }

@@ -1,6 +1,8 @@
 .login-form {
     @extend .flex-column;
+    align-items: center;
     .submit-button {
+        width: 100%;
         margin-top: 20px;
     }
 }

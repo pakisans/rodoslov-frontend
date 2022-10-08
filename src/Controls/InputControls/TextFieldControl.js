@@ -27,7 +27,7 @@ const TextFieldControl = (props) => {
             <TextField {...field}
                        {...options}
                        className={options.className ? options.className : 'text-field-control'}
-                       id="standard-basic"
+                       id={props.id}
                        variant="standard"
                        onKeyPress={props?.onKeyPress}
                        inputProps={{maxLength: props?.maxLength, minLength: props?.minLength}}

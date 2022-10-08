@@ -40,6 +40,11 @@ a {
     }
 }
 
+.error-message {
+    color: $error;
+    font-size: 16px;
+}
+
 @mixin fade-in {
     opacity: 1;
     animation-name: fadeInOpacity;
