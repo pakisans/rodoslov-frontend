@@ -206,6 +206,12 @@ a {
   padding: 15px;
   border-radius: 15px;
 }
+@media screen and (min-width: 1441px) {
+  .family-page .content-container .family-tabs-container {
+    width: auto;
+    max-width: 1331px;
+  }
+}
 .family-page .content-container .family-tabs-container .family-tabs .MuiTabScrollButton-root {
   display: none;
 }
@@ -313,12 +319,12 @@ a {
   padding: 0 50px;
   border-radius: 10px;
 }
-@media screen and (min-width: 1441px) {
+@media screen and (min-width: 1440px) {
   .header .nav-bar {
     padding: 0 60px;
   }
 }
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1441px) {
   .header .nav-bar {
     padding: 0 90px;
   }

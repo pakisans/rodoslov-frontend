@@ -81,7 +81,7 @@ a {
     border-radius: 15px;
     @include fade-in;
 
-    @media screen and(min-width: $break-xl) {
+    @media screen and(min-width: $break-xxl) {
         margin: 0 240px;
         margin-top: 20px;
     }
