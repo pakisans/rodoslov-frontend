@@ -13,6 +13,8 @@ const formRules = {
         pattern: { value: ValidationPatters.EMAIL, message: strings.pages.login.emailError }
     },
     'password': { required: { value: true, message: strings.pages.login.fieldRequired } },
+    'lastName': { required: { value: true, message: strings.pages.login.fieldRequired } },
+    'firstName': { required: { value: true, message: strings.pages.login.fieldRequired } },
     'requiredPassword': { required: { value: true, message: strings.pages.login.fieldRequired } }
 }
 
@@ -39,9 +41,11 @@ const SignUp = () => {
             navigate('/login', {state: {successRegister:true}})
         })
     }
-    return <div className="sign-up">
-        <span className="title">{strings.pages.registartion.registartionTitle}</span>
-        <RegisterForm errorMessage={errorMessage} errors={errors} formRules={formRules} onSubmit={handleSubmit(onSubmit)} control={control}  />
+    return <div className="center-container">
+        <div className="sign-up">
+            <span className="title">{strings.pages.registartion.registartionTitle}</span>
+            <RegisterForm errorMessage={errorMessage} errors={errors} formRules={formRules} onSubmit={handleSubmit(onSubmit)} control={control}  />
+        </div>
     </div>
 }
 

@@ -22,12 +22,7 @@ a {
 
 .main-container {
     @extend .flex-column;
-    width: 100vw;
-}
-
-.content-container {
-    display: flex;
-    width: 100vw;
+    width: 100%;
 }
 
 .submit-button {
@@ -43,6 +38,7 @@ a {
 .error-message {
     color: $error;
     font-size: 16px;
+    margin-top: 5px;
 }
 
 @mixin fade-in {
@@ -66,4 +62,28 @@ a {
     display: flex;
     justify-content: center;
     padding-bottom: 5px;
+}
+
+.center-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-container {
+    margin: 0 190px;
+    margin-top: 20px;
+    background-color: $primary-backround;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    @include fade-in;
+
+    @media screen and(min-width: $break-xl) {
+        margin: 0 240px;
+        margin-top: 20px;
+    }
+
 }

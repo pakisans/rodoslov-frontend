@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom";
-import { login } from "../Base/OAuth";
+import { useLocation, useNavigate } from "react-router-dom";
+import { isUserLoggedIn, login } from "../Base/OAuth";
 import LoginForm from "../Components/Forms/LoginForm";
 import BackendMessages from "../Constants/BackendMessages";
 import ValidationPatters from "../Constants/ValidationPatters";
@@ -17,10 +18,17 @@ const formRules = {
 
 const Login = () => {
     const location = useLocation();
-    //TO:DO
+    const navigate = useNavigate();
     const form = useForm();
     const { control, handleSubmit, formState: { errors } } = form;
     const [errorMessage, setErrorMessage] = useState(false);
+
+    useEffect(() => {
+        if(isUserLoggedIn()){
+            navigate('/')
+        }
+    })
+    
 
     const onSubmit = (data) => {
         login(data.username, data.password).then(res => {
@@ -31,13 +39,16 @@ const Login = () => {
                 }
                 return;
             }
+            navigate('/',{state:{}})
             //TO:DO
         })
     }
     
-    return <div className="login">
-        <span className="title">{strings.pages.login.loginTitle}</span>
-        <LoginForm errorMessage={errorMessage} formRules={formRules} errors={errors} onSubmit={handleSubmit(onSubmit)} form={form} control={control}/>
+    return <div className="center-container">
+        <div className="login">
+            <span className="title">{strings.pages.login.loginTitle}</span>
+            <LoginForm errorMessage={errorMessage} formRules={formRules} errors={errors} onSubmit={handleSubmit(onSubmit)} form={form} control={control}/>
+        </div>
     </div>
 }
 

@@ -2,6 +2,7 @@ $primary: #000000;
 $secondary: #000000;
 $text: #000000;
 $error: rgb(255, 0, 0);
+$primary-backround:  rgba($color: #ffffff, $alpha: .8);
 
 $half-black: rgba(0, 0, 0, 0.5);;
 $black: #000;
@@ -9,9 +10,9 @@ $black: #000;
 $break-t: 576px;
 $break-l: 992px;
 $break-d: 1220px;
-$break-xl: 1440px;
+$break-xl: 1441px;
 $break-xxl: 1920px;
 
 $white: #fff;
 
-$hover-color: hsla(48, 90%, 43%, 0.66);
+$hover-color: rgba(208, 169, 11, 0.5);

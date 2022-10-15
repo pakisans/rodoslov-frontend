@@ -88,7 +88,3 @@ export const clearUserDataLock = () => {
 export const isUserLoggedIn = () => {
     return getUserFromLocalStorage() != null && getToken();
 }
-
-export const isUserLocked = () => {
-    return getUserFromLocalStorage() && !getToken();
-}

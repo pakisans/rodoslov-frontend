@@ -1,0 +1,40 @@
+.family-page {
+    width: 100%;
+    .content-container{
+        padding-top: 20px;
+        span {
+            font-size: 32px;
+        }
+        .family-tabs-container {
+            width: 89%;
+            margin: 20px 0;
+            background-color: $black;
+            padding: 15px;
+            border-radius: 15px;
+            .family-tabs {
+                .MuiTabScrollButton-root {
+                    display: none;
+                }
+                .family-tab {
+                    &:not(:first-child){
+                        margin-left: 10px;
+                    }
+                    background-color: $primary-backround;
+                    border-radius: 15px;
+                    color: $black;
+                    font-weight: 700;
+                }
+                .MuiTabs-scroller {
+                    .MuiTabs-indicator {
+                        height: 100%;
+                        // background: unset !important;
+                        background: rgba($color: $hover-color, $alpha: .5);
+                        border-radius: 15px;
+                    }
+
+                }
+            }
+            
+        }
+    }
+}

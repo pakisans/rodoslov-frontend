@@ -9,14 +9,13 @@ const BaseLayout = (props) => {
         <div className="header-container">
             <Header />
         </div>
-        <div className="content-container">
-            <MainContent>
-                {props.children}
-            </MainContent>
-        </div>
-        <div className="footer-container">
-            <Footer />
-        </div>
+
+        <MainContent>
+            {props.children}
+        </MainContent>
+
+        <Footer />
+
     </div>
 }
 

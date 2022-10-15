@@ -25,10 +25,13 @@ let strings = new LocalizedStrings({
                 loginTitle: 'Prijava na sistem',
                 fieldRequired: 'Ovo polje je obavezno.',
                 emailError: 'Unesite ispravnu email adresu.',
-                passwordError: 'Ovo polje je obavezno.'
+                passwordError: 'Ovo polje je obavezno.',
             },
             registartion: {
-                registartionTitle: 'Registracija'
+                registartionTitle: 'Registracija',
+            },
+            family: {
+                familyTitle: 'Familije'
             }
         },
         components: {
@@ -43,6 +46,8 @@ let strings = new LocalizedStrings({
                 registerForm: {
                     username: 'Email',
                     password: 'Lozinka',
+                    firstName: 'Ime',
+                    lastName: 'Prezime',
                     repeatPassword: 'Ponovite Lozinku',
                     email: 'Email',
                     register: 'Registrujte se',

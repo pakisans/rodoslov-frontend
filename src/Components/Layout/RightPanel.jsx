@@ -23,7 +23,7 @@ const RightPanel = (props) => {
         },
         {
             component1: undefined,
-            component2: userSelector && userSelector.user_type == 1 && <a className="nav-item">{strings.header.adminPanel.addFamily}</a>
+            component2: userSelector && userSelector.userType == 1 && <a className="nav-item">{strings.header.adminPanel.addFamily}</a>
         }
     ]
 

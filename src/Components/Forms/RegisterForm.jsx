@@ -19,6 +19,28 @@ const RegisterForm = ({form, control, onSubmit, formRules, errors, errorMessage}
                 helperText={errors.email && strings.pages.login.emailError}
                 margin="normal" />
             <TextFieldControl
+                id="firstname-input"
+                control={control}
+                name="firstName"
+                defaultValue=""
+                fullWidth
+                placeholder={strings.components.forms.registerForm.firstName}
+                rules={formRules['firstName']}
+                error={Boolean(errors.firstName)}
+                helperText={errors.firstName && strings.pages.login.fieldRequired}
+                margin="normal" />
+            <TextFieldControl
+                id="last-name-input"
+                control={control}
+                name="lastName"
+                defaultValue=""
+                fullWidth
+                placeholder={strings.components.forms.registerForm.lastName}
+                rules={formRules['lastName']}
+                error={Boolean(errors.lastName)}
+                helperText={errors.lastName && strings.pages.login.fieldRequired}
+                margin="normal" />
+            <TextFieldControl
                 id="password-input"
                 control={control}
                 name="password"

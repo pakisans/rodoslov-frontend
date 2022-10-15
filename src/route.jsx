@@ -1,4 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import { matchPath, Route, Routes } from "react-router-dom";
+import { isUserLoggedIn } from "./Base/OAuth";
+import Families from "./Pages/Families/Families";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
@@ -10,7 +12,7 @@ let ROUTES = {
         component: <Welcome />
     },
     Home: {
-        path:'/home',
+        path:'/',
         component: <Home />
     },
     Login: {
@@ -24,10 +26,13 @@ let ROUTES = {
 }
 
 const userPages = {
-    
+    Family: {
+        path: '/families',
+        component: <Families />
+    }
 }
 
-Object.assign(ROUTES, ROUTES);
+Object.assign(ROUTES, ROUTES, userPages);
 
 export const getRoutes = () => {
 
@@ -40,4 +45,37 @@ export const getRoutes = () => {
     }
 
     return <Routes>{result}</Routes>;
+}
+
+const getRoute = (path) => {
+
+    for (const [key, value] of Object.entries(ROUTES)) {
+
+        const match = matchPath({
+            path: value.path,
+            exact: value.exact,
+            strict: false
+        }, path)
+        if (match) {
+            return value
+        }
+
+    }
+
+    return null;
+}
+
+export const checkPath = (path) => {
+
+    let pathObject = getRoute(path);
+
+    if (!pathObject) {
+        return true;
+    }
+
+    if (pathObject.auth) {
+        return !isUserLoggedIn();
+    }
+
+    return false;
 }
