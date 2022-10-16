@@ -13,9 +13,6 @@ const TextFieldControl = (props) => {
     if (props.className) {
         options.className = props.className;
     }
-    if (props.InputProps) {
-        options.InputProps = props.InputProps;
-    }
 
     return <Controller
         {...props}
@@ -30,7 +27,7 @@ const TextFieldControl = (props) => {
                        id={props.id}
                        variant="standard"
                        onKeyPress={props?.onKeyPress}
-                       inputProps={{maxLength: props?.maxLength, minLength: props?.minLength}}
+                       InputProps={{ disableUnderline: true }}
                        InputLabelProps={{ ...field, shrink: true }}
                        size={props.size ? props.size : 'small'}
                        fullWidth={props.fullWidth ? props.fullWidth : true}
@@ -42,8 +39,6 @@ const TextFieldControl = (props) => {
                        disabled={props.disabled}
                        multiline={props.multiline}
                        rows={props.rows}
-                       maxRows={props.maxRows}
-                       minRows={props.minRows}
                        placeholder={props.placeholder}
             />}
     />

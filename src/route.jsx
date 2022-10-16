@@ -1,5 +1,6 @@
 import { matchPath, Route, Routes } from "react-router-dom";
 import { isUserLoggedIn } from "./Base/OAuth";
+import AdminPanel from "./Pages/AdminPanel/AdminPanel";
 import Families from "./Pages/Families/Families";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
@@ -32,7 +33,14 @@ const userPages = {
     }
 }
 
-Object.assign(ROUTES, ROUTES, userPages);
+const adminPages = {
+    AdminPanel: {
+        path: '/admin',
+        component: <AdminPanel />
+    }
+}
+
+Object.assign(ROUTES, ROUTES, userPages, adminPages);
 
 export const getRoutes = () => {
 

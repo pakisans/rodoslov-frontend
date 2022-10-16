@@ -1,0 +1,28 @@
+.data-managment-drawer {
+    .MuiDrawer-paper {
+        width: 30%;
+        background: url('/images/drawer-bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        @media screen and (min-width: $break-xxl) {
+            background-size: 100% 100%;
+            width: 25%;
+            height: 100%;
+        }
+
+    }
+}
+.drawer {
+    width: 100%;
+    background-size: cover;
+    z-index: 1;
+
+    .drawer-header {
+        text-align: center;
+        padding-top: 60px;
+        span {
+            font-size: 20px;
+        }
+    }
+}
+

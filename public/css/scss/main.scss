@@ -7,14 +7,20 @@
 @import "pages/login";
 @import "pages/sign-up";
 @import "pages/families/families";
+@import "pages/admin-panel/admin-panel";
 
-@import "components/left-panel";
-@import "components/right-panel";
-@import "components/footer";
-@import "components/header";
-@import "components/main-content";
+@import "components/base/left-panel";
+@import "components/base/right-panel";
+@import "components/base/footer";
+@import "components/base/header";
+@import "components/base/main-content";
+
+@import "components/dialog/help-dialog";
 
 @import "components/forms/login-form";
 @import "components/forms/register-form";
+@import "components/forms/base-form";
+
+@import "components/drawer/data-management-drawer";
 
 @import "controls/text-field-control";

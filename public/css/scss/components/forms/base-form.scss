@@ -1,0 +1,25 @@
+.drawer-form {
+    display: flex;
+    flex-direction: column;
+    padding: 45px 60px 0;
+    label {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .MuiFormControl-root {
+        margin-top: 8px;
+    }
+
+    .action-buttons {
+        margin-left: auto;
+        .save-button {
+            color: rgb(0, 193, 6);
+            margin-left: auto;
+        }
+
+        .cancel-button {
+            color: red;
+        }
+    }
+}

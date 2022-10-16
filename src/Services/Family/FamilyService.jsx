@@ -9,7 +9,7 @@ export const addFamilies = async (data) => {
     return await request('/api/families', data, HttpMethod.POST);
 }
 
-export const editFamilies = async (data) => {
+export const editFamiliy = async (data) => {
     return await request(`/api/family/${data.id}`, data, HttpMethod.PUT);
 }
 

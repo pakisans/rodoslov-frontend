@@ -1,0 +1,33 @@
+.admin-panel {
+    width: 100%;
+    .content-container {
+        align-items: unset;
+        justify-self: unset;
+
+        .page-title{
+            margin-top: 20px;
+            font-size: 32px;
+            text-align: center;
+            // margin: 20px 0;
+        }
+
+        .admin-tabs {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            background-image: url('/images/header-background.jpeg');
+            padding: 15px;
+
+            border:1px solid black;
+
+            .admin-tab {
+                &:not(:first-child){
+                    margin-left: 10px;
+                }
+                background-color: $primary-backround;
+                border-radius: 15px;
+                color: $black;
+                font-weight: 700;
+            }
+        }
+    }
+}

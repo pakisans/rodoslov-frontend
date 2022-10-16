@@ -4,7 +4,7 @@ body {
     font-family: "Open Sans";
     font-size: 12px;
     background-image: url('/images/background.webp');
-    background-size: cover;
+    background-size: contain;
     background-attachment: scroll;
 }
 
@@ -29,7 +29,7 @@ a {
     border: 1px solid $white !important;
     color: $white !important;
     border-radius: 15px !important;
-
+    background: rgba($color: #fff, $alpha: .5);
     &:hover {
         background-color: rgb(138, 128, 14) !important;
     }
@@ -86,4 +86,121 @@ a {
         margin-top: 20px;
     }
 
+}
+
+//------------------Mui components global--------------
+.MuiTabs-scroller {
+    .MuiTabs-indicator {
+        height: 100%;
+        background: rgba($color: $hover-color, $alpha: .5);
+        border-radius: 15px;
+    }
+}
+
+.action-cells {
+    display: flex;
+    .action-cell {
+        border-right: 1px solid $black;
+        border-bottom: 1px solid $black;
+        height: 100%;
+        &:hover {
+            cursor: pointer;
+        }
+        svg {
+            height: 100px !important;
+            margin-right: 10px;
+        }
+        &:last-child {
+            margin-left: 10px;
+        }
+    }
+}
+
+.MuiDataGrid-root {
+    border: 1px solid $black !important;
+    border-radius: 15px !important;
+    border-start-start-radius: unset !important;
+    border-start-end-radius: unset !important;
+   .MuiDataGrid-toolbarContainer {
+       border-bottom: 1px solid $black !important;
+        .MuiButtonBase-root {
+            color: $black !important;
+        }
+   }
+
+    // &:last-child {
+    //     border: 1px solid $black;
+    // }
+
+}
+
+.MuiButton-startIcon {
+    margin: 0 !important;
+}
+
+.BaseBadge-root {
+    margin: 0 !important;
+}
+
+.MuiDataGrid-toolbarContainer {
+    padding-top: 0 !important;
+
+    .add-item {
+        display: flex;
+        align-items: center;
+        border-left: 1px solid $black;
+        margin-left: auto;
+        padding: 12px 0;
+        cursor: pointer;
+        svg {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        span {
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        &:active {
+            @include fade-in;;
+            background: rgba($color: #000000, $alpha: .5);
+        }
+    }
+    .MuiButtonBase-root {
+        border-right: 1px solid $black;
+        border-radius: unset;
+        height: 100%;
+        // line-height: 2.75;
+        padding: 12px 5px;
+    }
+}
+
+.MuiDataGrid-panel {
+    transform: translate3d(190px, 232.5px, 0px) !important;
+}
+
+.MuiDataGrid-columnHeaders {
+    background-image: url('/images/header-background.jpeg');
+    border-radius: 0 !important;
+}
+.MuiDataGrid-columnSeparator {
+    display: none !important;
+}
+.MuiDataGrid-columnHeaderTitleContainer {
+    border-right: 1px solid $black;
+}
+
+.MuiDataGrid-columnHeader:focus {
+    outline: none !important;
+}
+
+.MuiDataGrid-cell:focus {
+    outline: solid 1px black !important;
+}
+
+.MuiDataGrid-cell {
+    border-right: 1px solid $black;
+    &:last-child {
+        border-right: unset !important;
+    }
 }

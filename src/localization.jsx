@@ -8,7 +8,7 @@ let strings = new LocalizedStrings({
             family: 'Familije',
             registratoin: 'Registracija',
             adminPanel: {
-                addFamily: 'Dodaj familiju',
+                ttitle: 'Tabla rukovodioca',
             },
             navigation: 'Navigation',
             title: 'Rodoslov',
@@ -31,7 +31,10 @@ let strings = new LocalizedStrings({
                 registartionTitle: 'Registracija',
             },
             family: {
-                familyTitle: 'Familije'
+                familyTitle: 'Familije',
+                familyName: 'Naziv familije',
+                editFamily: 'Izmena podataka za familiju',
+                addFamily: 'Dodajte novu familiju'
             }
         },
         components: {
@@ -53,8 +56,40 @@ let strings = new LocalizedStrings({
                     register: 'Registrujte se',
                     repeatPasswordError: 'Lozinke se ne poklapaju',
                     userExist: 'Korisnik vec postoji'
+                },
+                common: {
+                    required: 'Ovo polje je obavezno.',
+                    saveButton: 'Sacuvaj',
+                    cancelButton: 'Odustani'
+                },
+                family: {
+                    familyName: 'Naziv familije'
                 }
             },
+            dataGrid: {
+                actions: 'Akcije',
+                deleteItem: 'Izbrisi stavku',
+                editItem: 'Izmeni stavku',
+                add: 'Dodaj',
+            },
+            helpDialog: {
+                deleteTitle: 'Brisanje stavke',
+                deleteText: 'Da li ste sigurni da zelite da obrisete ovu stavku?',
+                yesText: 'Potvrdite',
+                noText: 'Odustanite'
+            },
+            adminPanel: {
+                adminTitle: 'Administracija',
+                entities: {
+                    family: 'Familije',
+                    sheets: 'Listovi',
+                    biography: 'Biografije'
+                }
+            },
+            actionCell: {
+                delete: 'Brisanje',
+                edit: 'Izmena'
+            }
         }
     },
 });

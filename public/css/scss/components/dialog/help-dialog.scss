@@ -1,0 +1,23 @@
+.help-dialog {
+    .MuiPaper-root {
+        display: flex;
+        align-items: center;
+        background-image: url('/images/modal-background.jpeg');
+        background-size: contain;
+
+        .MuiDialogActions-root {
+            .help-submit-button {
+                background-color:#33b249 !important;
+            }
+            .help-cancel-button {
+                background-color: red !important;
+            }
+        }
+
+        .MuiDialogContent-root {
+            .MuiTypography-root {
+                font-size: 18px !important;
+            }
+        }
+    }
+}

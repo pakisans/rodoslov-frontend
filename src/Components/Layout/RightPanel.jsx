@@ -1,8 +1,8 @@
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../Base/OAuth";
 import strings from "../../localization";
+import { AiFillSetting } from "react-icons/ai";
 
 const RightPanel = (props) => {
     const navigate = useNavigate();
@@ -22,8 +22,8 @@ const RightPanel = (props) => {
             component2: !userSelector && <a onClick={() => navigate('/registration')} className="nav-item">{strings.header.registratoin}</a>
         },
         {
-            component1: undefined,
-            component2: userSelector && userSelector.userType == 1 && <a className="nav-item">{strings.header.adminPanel.addFamily}</a>
+            component1: <AiFillSetting size={30}onClick={() => navigate('/admin')} />,
+            component2: userSelector && userSelector.userType == 1 && <a onClick={() => navigate('/admin')} className="nav-item">{strings.header.adminPanel.ttitle}</a>
         }
     ]
 
