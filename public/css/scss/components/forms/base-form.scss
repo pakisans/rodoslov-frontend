@@ -1,14 +1,35 @@
 .drawer-form {
     display: flex;
     flex-direction: column;
-    padding: 45px 60px 0;
-    label {
-        font-size: 18px;
-        font-weight: 500;
-    }
+    padding: 35px 60px 0;
 
     .MuiFormControl-root {
         margin-top: 8px;
+
+        .text-field-control {
+            .MuiFormLabel-root {
+                &.Mui-focused {
+                    color: $outline-color;
+                    font-weight: 700;
+                }
+            }
+            .MuiOutlinedInput {
+                    -webkit-text-fill-color: none !important;
+            }
+            .MuiInputBase-root {
+                input:-webkit-autofill,
+                input:-webkit-autofill:hover, 
+                input:-webkit-autofill:focus, 
+                input:-webkit-autofill:active{
+                    transition: background-color 5000s ease-in-out 0s;
+                }
+                &.Mui-focused {
+                    fieldset {
+                        border-color: $outline-color;
+                    }
+                }
+            }
+        }
     }
 
     .action-buttons {

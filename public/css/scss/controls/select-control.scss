@@ -1,0 +1,13 @@
+.select-control {
+    .MuiSelect-select {
+        padding: 5px 20px !important;
+        background: unset;
+        // border: 1px solid black;
+    }
+
+    .MuiFormControl-root {
+        .helper-erorr {
+            margin-top: 10px;
+        }
+    }
+}

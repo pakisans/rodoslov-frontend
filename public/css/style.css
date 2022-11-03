@@ -300,8 +300,11 @@ a {
   color: #fff;
   font-size: 24px;
 }
-.sign-up .login-form {
-  width: 70%;
+.sign-up .register-form {
+  margin-top: 10px;
+}
+.sign-up .register-form .text-control {
+  width: 100%;
 }
 
 .family-page {
@@ -535,6 +538,16 @@ a {
 .login-form {
   align-items: center;
 }
+.login-form .text-control {
+  width: 100%;
+}
+.login-form .text-control .MuiFormControl-root .text-field-control {
+  background-color: #fff;
+}
+.login-form .text-control .MuiFormControl-root .text-field-control .MuiInputBase-root fieldset {
+  outline: 0;
+  border: 0;
+}
 .login-form .submit-button {
   width: 100%;
   margin-top: 20px;
@@ -544,6 +557,13 @@ a {
   width: 70%;
   align-items: center;
 }
+.register-form .text-control .MuiFormControl-root .text-field-control {
+  background-color: #fff;
+}
+.register-form .text-control .MuiFormControl-root .text-field-control .MuiInputBase-root fieldset {
+  outline: 0;
+  border: 0;
+}
 .register-form .submit-button {
   margin-top: 20px;
   width: 100%;
@@ -552,14 +572,26 @@ a {
 .drawer-form {
   display: flex;
   flex-direction: column;
-  padding: 45px 60px 0;
-}
-.drawer-form label {
-  font-size: 18px;
-  font-weight: 500;
+  padding: 35px 60px 0;
 }
 .drawer-form .MuiFormControl-root {
   margin-top: 8px;
+}
+.drawer-form .MuiFormControl-root .text-field-control .MuiFormLabel-root.Mui-focused {
+  color: rgb(207, 152, 0);
+  font-weight: 700;
+}
+.drawer-form .MuiFormControl-root .text-field-control .MuiOutlinedInput {
+  -webkit-text-fill-color: none !important;
+}
+.drawer-form .MuiFormControl-root .text-field-control .MuiInputBase-root input:-webkit-autofill,
+.drawer-form .MuiFormControl-root .text-field-control .MuiInputBase-root input:-webkit-autofill:hover,
+.drawer-form .MuiFormControl-root .text-field-control .MuiInputBase-root input:-webkit-autofill:focus,
+.drawer-form .MuiFormControl-root .text-field-control .MuiInputBase-root input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+.drawer-form .MuiFormControl-root .text-field-control .MuiInputBase-root.Mui-focused fieldset {
+  border-color: rgb(207, 152, 0);
 }
 .drawer-form .action-buttons {
   margin-left: auto;
@@ -599,12 +631,33 @@ a {
   font-size: 20px;
 }
 
-.text-field-control {
-  background-color: #fff;
-  border-radius: 30px;
-}
-.text-field-control .MuiInput-root {
+.text-control .text-field-control .MuiInput-root {
   padding: 0px 20px;
+}
+
+.select-control .MuiSelect-select {
+  padding: 5px 20px !important;
+  background: unset;
+}
+.select-control .MuiFormControl-root .helper-erorr {
+  margin-top: 10px;
+}
+
+.MuiPickersPopper-root {
+  margin-left: 24px !important;
+}
+
+.photo-control {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.photo-control .photo-button {
+  margin-left: auto;
+}
+.photo-control .MuiAvatar-root {
+  width: 100px;
+  height: 100px;
 }
 
 /*# sourceMappingURL=style.css.map */

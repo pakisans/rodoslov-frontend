@@ -6,12 +6,12 @@ import strings from "../../localization";
 const FamilyForm = ({errors, form, control, onSubmit, formRules, onCancel}) => {
     return <FormProvider {...form}>
         <form className="drawer-form" onSubmit={onSubmit}>
-            <label>{strings.components.forms.family.familyName}</label>
             <TextFieldControl
                 name='familyName'
                 rules={formRules['familyName']}
                 control={control}
                 defaultValue=""
+                label={strings.components.forms.family.familyName}
                 error={Boolean(errors.familyName)}
                 helperText={errors.familyName && strings.components.forms.common.required}
                 placeHolder={strings.components.forms.family.familyName}

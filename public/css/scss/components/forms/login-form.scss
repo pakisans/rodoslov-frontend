@@ -1,6 +1,24 @@
 .login-form {
     @extend .flex-column;
     align-items: center;
+
+    .text-control {
+        width: 100%;
+        .MuiFormControl-root {
+            .text-field-control {
+                background-color: $white;
+                
+                .MuiInputBase-root {
+                
+                    fieldset {
+                        outline: 0;
+                        border: 0;
+                    }
+                }
+            }
+
+        }
+    }
     .submit-button {
         width: 100%;
         margin-top: 20px;

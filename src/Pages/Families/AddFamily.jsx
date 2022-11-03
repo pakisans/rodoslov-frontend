@@ -28,7 +28,7 @@ const AddFamily = (props) => {
         })
     }
 
-    return <FamilyForm control={control} formRules={familyFormRules} onSubmit={handleSubmit(onSubmit)} errors={errors} />
+    return <FamilyForm onCancel={() => props.setDataManagementMode(DataManagmentMode.VIEW)} control={control} formRules={familyFormRules} onSubmit={handleSubmit(onSubmit)} errors={errors} />
 
 }
 

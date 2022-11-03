@@ -1,6 +1,7 @@
 import TextField from "@mui/material/TextField";
 import {Controller} from "react-hook-form";
 import React from "react";
+import { FormControl, FormHelperText } from "@mui/material";
 
 const TextFieldControl = (props) => {
     
@@ -21,26 +22,30 @@ const TextFieldControl = (props) => {
         defaultValue={props.defaultValue}
         rules={props.rules}
         render={({ field }) =>
-            <TextField {...field}
-                       {...options}
-                       className={options.className ? options.className : 'text-field-control'}
-                       id={props.id}
-                       variant="standard"
-                       onKeyPress={props?.onKeyPress}
-                       InputProps={{ disableUnderline: true }}
-                       InputLabelProps={{ ...field, shrink: true }}
-                       size={props.size ? props.size : 'small'}
-                       fullWidth={props.fullWidth ? props.fullWidth : true}
-                       type={props.type}
-                       margin={props.margin ? props.margin : 'normal'}
-                       error={props.error}
-                       helperText={props.helperText}
-                       label={props.label}
-                       disabled={props.disabled}
-                       multiline={props.multiline}
-                       rows={props.rows}
-                       placeholder={props.placeholder}
-            />}
+            <div className="text-control">
+                <FormControl fullWidth>
+                    <TextField {...field}
+                                sx={{border: props.error ? `1px solid red` : 'unset'}}
+                            {...options}
+                            className={options.className ? options.className : 'text-field-control'}
+                            id={props.id}
+                            onKeyPress={props?.onKeyPress}
+                            InputProps={{ disableunderline:"true" }}
+                            InputLabelProps={{ ...field, shrink: true }}
+                            size={props.size ? props.size : 'small'}
+                            fullWidth={props.fullWidth ? props.fullWidth : true}
+                            type={props.type}
+                            margin={props.margin ? props.margin : 'normal'}
+                            error={props.error}
+                            label={props.label}
+                            disabled={props.disabled}
+                            multiline={props.multiline}
+                            rows={props.rows}
+                            placeholder={props.placeholder}
+                    />
+                </FormControl>
+            <FormHelperText error>{props.helperText}</FormHelperText>
+            </div>}
     />
 }
 

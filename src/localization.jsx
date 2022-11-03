@@ -35,9 +35,42 @@ let strings = new LocalizedStrings({
                 familyName: 'Naziv familije',
                 editFamily: 'Izmena podataka za familiju',
                 addFamily: 'Dodajte novu familiju'
+            },
+            biography: {
+                pageTitle: 'Biografije',
+                addBiography: 'Dodaj biografiju',
+                editBiography: 'Izmeni biografiju',
+                dateFrom: 'Vazi od',
+                dateTo: 'Vazi do',
+                whereIs: 'Gde je bio',
+                biographyDescription: 'Opis biografije',
+                graveMarker: 'Grobna oznaka',
+                spouseInformation: 'Supruznik',
+                sheet: 'List'
+            },
+            sheets: {
+                pageTitle: 'Listovi',
+                addSheet: 'Dodavanje lista',
+                editSheet: 'Izmena lista',
+                firstName: 'Ime',
+                isStructure: 'Ima strukturu',
+                dateOfBirth: 'Datum rodjenja',
+                dateOfDeath: 'Datum smrti',
+                address: 'Adresa',
+                photo: 'Slika',
+                family: 'Familija',
+                currentLevel: 'Koleno'
+            },
+            structure: {
+                pageTitle: 'Strukture',
+                addStructure: 'Dodajte strukturu',
+                editStructure: 'Izmenite strukturu'     
             }
         },
         components: {
+            common: {
+                select:'Izaberi'
+            },
             forms: {
                 loginForm: {
                     username: 'Email',
@@ -64,6 +97,30 @@ let strings = new LocalizedStrings({
                 },
                 family: {
                     familyName: 'Naziv familije'
+                },
+                strucutre: {
+                    firstName: 'Ime',
+                    isStructure: 'Ima strukturu',
+                    dateOfBirth: 'Datum rodjenja',
+                    dateOfDeath: 'Datum smrti',
+                    address: 'Adresa',
+                    photo: 'Slika',
+                    family: 'Familija',
+                    currentLevel: 'Koleno',
+                    superior: 'Odredjeni',
+                    subordinate: 'Podredjeni',
+                    addPhoto: 'Ubacite sliku',
+                    photo: 'Slika'
+                },
+                biography: {
+                    list: 'List',
+                    dateFrom:'Vazi od',
+                    dateTo:'Vazi do',
+                    whereIs:'Gde je bio',
+                    biographyDescription: 'Opis biografije',
+                    graveMarker:'Grobna oznaka',
+                    spouseInformation: 'Supruznik',
+                    sheet: 'List'
                 }
             },
             dataGrid: {
@@ -83,7 +140,8 @@ let strings = new LocalizedStrings({
                 entities: {
                     family: 'Familije',
                     sheets: 'Listovi',
-                    biography: 'Biografije'
+                    biography: 'Biografije',
+                    structure: 'Struktura'
                 }
             },
             actionCell: {

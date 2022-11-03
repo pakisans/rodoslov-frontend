@@ -2,6 +2,21 @@
     width: 70%;
     @extend .flex-column;
     align-items: center;
+
+    .text-control {
+        .MuiFormControl-root {
+            .text-field-control {
+                background-color: $white;
+                .MuiInputBase-root {
+                    fieldset {
+                        outline: 0;
+                        border: 0;
+                    }
+                }
+            }
+        }
+    }
+   
     .submit-button {
         margin-top: 20px;
         width: 100%;
