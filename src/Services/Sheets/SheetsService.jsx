@@ -1,7 +1,7 @@
 import { request } from "../../Base/HTTP"
 import HttpMethod from "../../Constants/HttpMethod";
 
-export const getSheets = async (data) => {
+export const getSheetsByFamily = async (data) => {
     return await request(`/api/sheets`, data);
 }
 
@@ -25,6 +25,6 @@ const exportData = (data) => {
     return {
         ...data,
         familyId: data?.family ? data.family.id : null,
-        isStructure: 1,
+        isStructure: 0,
     }
 }

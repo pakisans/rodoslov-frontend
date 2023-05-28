@@ -1,9 +1,11 @@
 .family-page {
     width: 100%;
     .content-container{
-        padding-top: 20px;
+        padding: 20px 0 20px;
+        
         span {
             font-size: 32px;
+            font-family: 'NotoSerif';
         }
         .family-tabs-container {
             width: 89%;
@@ -31,6 +33,33 @@
                 }
             }
             
+        }
+
+        .familija{ 
+            margin-bottom: 20px;
+        }
+        ul {
+            height: auto;
+            li {
+                div {
+                    .MuiTreeItem-label {
+                        font-size: 26px;
+                    }
+                }
+                ul {
+                    div {
+                        div {
+                            li {
+                                div {
+                                    .MuiTreeItem-label {
+                                        font-size: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

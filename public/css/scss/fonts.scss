@@ -11,3 +11,12 @@
     font-weight: 400;
     font-style: italic;
 }
+
+@font-face {
+    font-family: 'Western';
+    src:    url('/fonts/aeonik/Western.otf') format('opentype'),
+            url('/fonts/aeonik/Western.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}

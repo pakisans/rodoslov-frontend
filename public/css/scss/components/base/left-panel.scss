@@ -1,23 +1,42 @@
 .navigation-menu {
     display: none;
-    @extend .flex-column-center-align-center ;
+    @extend .flex-column-center-align-center;
     background-color: rgba($color: #fff, $alpha: 0.5);
     width: 12%;
-    height: 200px;
+    height: auto;
     margin-top: 5px;
     margin-left: 5px;
     justify-content: unset;
     z-index: 1;
     position: absolute;
     border-radius: 20px;
+    padding: 10px 0;
+
     &.active {
-        display: block;
+        z-index: 9999;
+        @extend .flex-column-center-align-center;
+        @include fade-in;
+        .help-panel {
+            @extend .flex-align-center;
+            width: 100%;
+            justify-content: center;
+            
+            img {
+                width: 30px;
+                height: 30px;
+            }
+           
+            .logout-icon {
+                transform: rotate(180deg);
+            }
+        }
     }
 
     .nav-item {
         color: rgba($color: #000000, $alpha: 0.7);
         font-family: NotoSerif;
         font-size: 22px;
+        text-align: center;
         margin-top: 10px;
         display: flex;
         justify-content: center;

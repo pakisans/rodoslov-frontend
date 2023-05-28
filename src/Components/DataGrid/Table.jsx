@@ -11,6 +11,7 @@ import DataManagementDrawer from '../DataManagment/DataManagement';
 import HelpDialog from '../Dialogs/HelpDialog';
 import ActionCell from './ActionCell';
 import {MdAddCircleOutline} from 'react-icons/md';
+import NotificationActionContext from '../../Context/NotificationActionWrapper';
 const TableComponent = ({tableComponents, tableData, deleteItem, addPage, editPage}) => {
     const dispatch = useDispatch();
     const dataManagementTitle = useSelector((state) => state.dataManagement.title);
@@ -21,7 +22,8 @@ const TableComponent = ({tableComponents, tableData, deleteItem, addPage, editPa
         dataManagementMode, setDataManagementMode,
         showDeleteDialog, setShowDeleteDialog,
     } = useContext(TableComponentContext);
-
+    const {showNotification} = useContext(NotificationActionContext);
+    
     const getTableComponents = (values) => {
         if(!values || !values.length) return;
         let result = [...values];
@@ -73,14 +75,22 @@ const TableComponent = ({tableComponents, tableData, deleteItem, addPage, editPa
         }
 
         deleteItem(selectedItemId).then(res => {
+            if (res.response.status == 400){
+                setShowDeleteDialog(false);
+                setSelectedItemId(null);
+                showNotification(strings.common.errorDeletingParent,'error');
+                return;
+            }
             if (!res || !res.ok) {
                 setShowDeleteDialog(false);
                 setSelectedItemId(null);
+                showNotification(strings.common.errorDeleting,'error');
                 return;
             }
             dispatch(setIsReadyForFetch());
             setShowDeleteDialog(false);
             setSelectedItemId(null);
+            showNotification(strings.common.itemDeleted, 'success')
         })
     }
 

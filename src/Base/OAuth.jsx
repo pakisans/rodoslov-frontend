@@ -47,7 +47,6 @@ export const fetchCurrentUser = () => {
 
 export const logout = (navigate) => {
     clearUserData();
-    navigate();
     store.dispatch(setUser(null));
 }
 

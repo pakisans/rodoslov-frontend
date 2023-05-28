@@ -6,6 +6,12 @@ export const renderDate = (item) => {
     return new Date(item.value).toLocaleDateString();
 }
 
+export const renderFormDate = (item) => {
+    if(!item) return null;
+
+    return new Date(item).toLocaleDateString();
+}
+
 export const getObjectValue = (object, key) => {
     if(!object.value || !key) return;
 

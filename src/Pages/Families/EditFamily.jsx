@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import FamilyForm from "../../Components/Forms/FamilyForm";
 import DataManagmentMode from "../../Constants/DataManagmentMode";
+import NotificationActionContext from "../../Context/NotificationActionWrapper";
 import strings from "../../localization";
 import { editFamiliy } from "../../Services/Family/FamilyService";
 import { setDataManagementTitle } from "../../Slices/DataManagementSlice";
@@ -15,6 +16,7 @@ const EditFamily = (props) => {
     });
     const {handleSubmit, control, formState: {errors}} = form;
     const dispatch = useDispatch();
+    const {showNotification} = useContext(NotificationActionContext);
 
     useEffect(() => {
         dispatch(setDataManagementTitle(strings.pages.family.editFamily))
@@ -26,11 +28,14 @@ const EditFamily = (props) => {
 
     const onSubmit = (data) => {
         editFamiliy(data).then(res => {
-            if(!res||!res.ok) return;
+            if(!res||!res.ok){
+                showNotification(strings.common.errorEditing, 'error');
+            }
         })
         .finally(() => {
             onFinish();
             dispatch(setIsReadyForFetch());
+            showNotification(strings.common.itemUpdated);
         })
 
     }

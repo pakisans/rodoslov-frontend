@@ -14,7 +14,8 @@ const SelectControl = ({
     helpText, 
     options,
     nameKey,
-    valueKey
+    valueKey,
+    disabled
 }) => {
     const [newValue, setNewValue] = useState(value && value[valueKey] ? value[valueKey] : -1);
 
@@ -45,7 +46,8 @@ const SelectControl = ({
             <InputLabel error={error}>{label}</InputLabel>
             <Controller rules={formRules} name={name} 
                 render={({field}) => <Select {...field}
-                                            sx={{ boxShadow: 'none', '.MuiOutlinedInput-notchedOutline': { border: '0 !important' } }}
+                                            disabled={disabled}
+                                            // sx={{ boxShadow: 'none', '.MuiOutlinedInput-notchedOutline': { border: '0 !important' } }}
                                             label={label}
                                             error={error}
                                             value={newValue}

@@ -25,7 +25,7 @@ const Login = () => {
 
     useEffect(() => {
         if(isUserLoggedIn()){
-            navigate('/')
+            navigate('/families')
         }
     })
     
@@ -39,7 +39,7 @@ const Login = () => {
                 }
                 return;
             }
-            navigate('/',{state:{}})
+            navigate('/families',{state:{}})
             //TO:DO
         })
     }

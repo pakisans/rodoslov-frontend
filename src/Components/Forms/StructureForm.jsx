@@ -13,13 +13,18 @@ const StructureForm = ({
     control,
     values,
     formRules,
-    superiors
+    superiors,
+    subordinates,
+    onFamilyChange,
+    onSuperiorChange,
 }) => {
     return <FormProvider {...form}>
         <form className="drawer-form" onSubmit={onSubmit}>
             <SelectControl 
                     value={values('family')}
-                    setValue={setValue}
+                    setValue={(name,e) => {
+                        onFamilyChange(e);
+                    }}
                     name='family'
                     label={strings.components.forms.strucutre.family}
                     options={families}
@@ -31,23 +36,27 @@ const StructureForm = ({
                 />
             <SelectControl 
                     value={values('superior')}
-                    setValue={setValue}
+                    setValue={(name,e) => {
+                        onSuperiorChange(e);
+                    }}
                     name='superior'
                     label={strings.components.forms.strucutre.superior}
                     options={superiors}
-                    nameKey={'familyName'}
+                    disabled={superiors.length == 0}
+                    nameKey={'fullName'}
                     valueKey={'id'}
                     error={Boolean(errors.superior)}
                     helperText={errors.superior && strings.components.forms.common.required}
                     rules={formRules['superior']}
                 />
             <SelectControl 
-                    value={values['subordinate']}
+                    value={values('subordinate')}
                     setValue={setValue}
                     name='subordinate'
                     label={strings.components.forms.strucutre.subordinate}
-                    options={families}
-                    nameKey={'subordinate'}
+                    options={subordinates}
+                    disabled={subordinates.length == 0}
+                    nameKey={'fullName'}
                     valueKey={'id'}
                     error={Boolean(errors.subordinate)}
                     helperText={errors.subordinate && strings.components.forms.common.required}

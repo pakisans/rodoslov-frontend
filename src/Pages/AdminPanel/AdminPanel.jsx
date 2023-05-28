@@ -2,6 +2,7 @@ import { Tab, Tabs } from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import TableComponent from "../../Components/DataGrid/Table";
 import AdminActiveTab from "../../Constants/AdminPanel";
 import DataManagmentMode from "../../Constants/DataManagmentMode";
@@ -11,13 +12,16 @@ import strings from "../../localization";
 import { deleteBiography, getBiographies } from "../../Services/Biography/BiographyService";
 import { deleteFamilies, getFamilies } from "../../Services/Family/FamilyService";
 import { deleteSheet, getAllSheets } from "../../Services/Sheets/SheetsService";
-import { biographiesTableData, familyTableData, sheestTableData } from "../../Utils/TableUtil";
+import { deleteStructure, getStructures } from "../../Services/Structure/StructureService";
+import { biographiesTableData, familyTableData, sheestTableData, structuresTableData } from "../../Utils/TableUtil";
 import AddBioraphy from "../Biographies/AddBiography";
+import EditBioraphy from "../Biographies/EditBiography";
 import AddFamily from "../Families/AddFamily";
 import EditFamily from "../Families/EditFamily";
 import AddSheet from "../Sheets/AddSheet";
 import EditSheet from "../Sheets/EditSheet";
 import AddStructure from "../Structure/AddStructure";
+import EditStructure from "../Structure/EditStructure";
 
 const AdminPanel = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -29,7 +33,16 @@ const AdminPanel = () => {
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
     const [dataManagementMode, setDataManagementMode] = useState(DataManagmentMode.VIEW);
     const isReadyForFetch = useSelector((state) => state.fetch.isReadyForFetch);
-    
+    const userSelector = useSelector((state) => state.auth.user);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(userSelector?.userType == 0 || !userSelector){
+            navigate('/');
+            return () => {}
+        }
+    },[userSelector])
+
     const value = {
         selectedItemId, setSelectedItemId,
         tableOptions, setTableOptions,
@@ -47,6 +60,9 @@ const AdminPanel = () => {
         }else if(activeTab == AdminActiveTab.BIOGRAPHY){
             fetchBioraphies();
             setTableColumns([...biographiesTableData]);
+        }else if(activeTab == AdminActiveTab.STRUCUTRE){
+            fetchStructures();
+            setTableColumns([...structuresTableData]);
         }
     },[isReadyForFetch, activeTab])
 
@@ -116,6 +132,28 @@ const AdminPanel = () => {
         })
     }
 
+    const fetchStructures = () => {
+        setTableData({
+            ...tableData,
+            loading: true
+        })
+        getStructures().then(res => {
+            if(!res || !res.ok){
+                setTableData({
+                    loading: true,
+                    data: [],
+                    total: 0
+                })
+                return;
+            };
+            setTableData({
+                loading: false,
+                data: res.data.result,
+                total: res.data.total
+            });
+        })
+    }
+
     const getAddMethods = (activeTab) => {
         if(activeTab === AdminActiveTab.FAMILY) return <AddFamily setDataManagementMode={setDataManagementMode} />;
         else if(activeTab === AdminActiveTab.SHEET) return <AddSheet setDataManagementMode={setDataManagementMode} />
@@ -126,8 +164,8 @@ const AdminPanel = () => {
     const getEditMethods = (activeTab) => {
         if(activeTab === AdminActiveTab.FAMILY) return <EditFamily setDataManagementMode={setDataManagementMode} data={selectionModel} />
         else if(activeTab === AdminActiveTab.SHEET) return <EditSheet setDataManagementMode={setDataManagementMode} data={selectionModel} />
-        else if(activeTab === AdminActiveTab.BIOGRAPHY) return <AddBioraphy setDataManagementMode={setDataManagementMode} data={selectionModel} />
-        else if(activeTab === AdminActiveTab.STRUCUTRE) return <AddBioraphy setDataManagementMode={setDataManagementMode} data={selectionModel} />
+        else if(activeTab === AdminActiveTab.BIOGRAPHY) return <EditBioraphy setDataManagementMode={setDataManagementMode} data={selectionModel} />
+        else if(activeTab === AdminActiveTab.STRUCUTRE) return <EditStructure setDataManagementMode={setDataManagementMode} data={selectionModel} />
     }
 
     const getDeleteMethods = (activeTab) => {
@@ -137,10 +175,12 @@ const AdminPanel = () => {
             return deleteSheet;
         }else if(activeTab == AdminActiveTab.BIOGRAPHY){
             return deleteBiography;
+        }else if(activeTab == AdminActiveTab.STRUCUTRE){
+            return deleteStructure;
         }
-
         return;
     }
+
     return <div className="admin-panel">
         <div className="content-container">
             <span className="page-title">{strings.components.adminPanel.adminTitle}</span>

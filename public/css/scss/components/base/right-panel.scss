@@ -14,8 +14,8 @@
 
     &.active {
         display: flex;
+        @include fade-in;
         .help-panel {
-            margin-top: 10px;
             @extend .flex-align-center;
 
             &:hover {
@@ -43,7 +43,7 @@
         font-family: NotoSerif;
         font-size: 22px;
         display: flex;
-        justify-content: center;
+        // justify-content: center;
         text-align: center;
         &:hover {
             font-weight: 500;

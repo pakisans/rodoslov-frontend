@@ -15,7 +15,7 @@ const RightPanel = (props) => {
         },
         {
             component1: userSelector && <img className="logout-icon" src="/images/login-icon.png" />,
-            component2: userSelector && <a onClick={() => logout(() => navigate('/'))} className="nav-item">{strings.header.logout}</a>
+            component2: userSelector && <a onClick={() => logout(() => navigate('/families'))} className="nav-item">{strings.header.logout}</a>
         },
         {
             component1: undefined,
@@ -34,8 +34,8 @@ const RightPanel = (props) => {
         
         return items.map((item,key) => {
             return <div className="help-panel" key={`help-panel${key}`}>
-                {item.component1}
-                {item.component2}
+                {item?.component1}
+                {item?.component2}
             </div>
         })
     }

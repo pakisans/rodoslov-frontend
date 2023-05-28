@@ -43,7 +43,7 @@ export const biographiesTableData = [
         valueFormatter: params => renderDate(params)
     },
     {
-        field: 'biographyDescription ', headerName: strings.pages.biography.biographyDescription, width: 200
+        field: 'biographyDescription', headerName: strings.pages.biography.biographyDescription, width: 200
     },
     {
         field: 'spouseInformation', headerName: strings.pages.biography.spouseInformation, width: 200
@@ -52,7 +52,22 @@ export const biographiesTableData = [
         field: 'graveMarker', headerName: strings.pages.biography.graveMarker, width: 200
     },
     {
-        field: 'sheet', headerName: strings.pages.biography.sheet, width: 200,
-        valueFormatter: params => getObjectValue(params, 'firstName')
+        field: 'sheets', headerName: strings.pages.biography.sheet, width: 200,
+        valueFormatter: params => getObjectValue(params, 'fullName')
+    }
+]
+
+export const structuresTableData = [
+    {
+        field: 'family', headerName: strings.pages.structure.family, width: 200,
+        valueFormatter: params => getObjectValue(params, 'familyName')
+    },
+    {
+        field: 'subordinate', headerName: strings.pages.structure.subordinate, width: 200,
+        valueFormatter: params => getObjectValue(params, 'fullName')
+    },
+    {
+        field: 'superior', headerName: strings.pages.structure.superior, width: 200,
+        valueFormatter: params => getObjectValue(params, 'fullName')
     }
 ]

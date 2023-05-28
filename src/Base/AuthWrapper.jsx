@@ -18,7 +18,7 @@ const AuthWrapper = (props) => {
             dispatch(setUser(user));
             if (!user) {
                 if (needAuth) {
-                    navigate('/');
+                    navigate('/login');
                 }
             }
         }

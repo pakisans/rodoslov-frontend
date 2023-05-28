@@ -1,0 +1,265 @@
+.biography-modal {
+        justify-content: center;
+        display:flex;
+        width: 1060px;
+        margin: 0 auto;
+        height: auto;
+        top: 7% !important;
+        bottom: 6% !important;
+        border-radius: 10px;
+    
+        .MuiBackdrop-root{
+            background-color: rgba(0, 0, 0, 0);
+        }
+        
+        .main-modal {
+            width: 100%;
+            display: block;
+            padding: 0px 20px 20px 40px;
+            background-image: url('/images/biography-bg.webp');
+            background-size: 100% 100%;
+            border-radius: 10px;
+    
+            .close {
+                width: fit-content;
+                font-size: 32px;
+                cursor: pointer;
+                margin-left: auto;
+    
+                &:hover {
+                    filter: invert(21%) sepia(96%) saturate(7431%) hue-rotate(358deg) brightness(107%) contrast(111%);
+                }
+            }
+    
+            .modal-body {
+                display: flex;
+                flex-direction: column;
+    
+                .full-name {
+                    font-size: 32px;
+                }
+    
+                .biography {
+                    font-size: 30px;
+                }
+                .left {
+                    .top {
+
+                        span, div {
+                            &:not(:first-child){
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+                
+                .label {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+    
+                .image {
+                    width: 200px;
+                    height: 200px;
+                    margin-top: 20px;
+                    border-radius: 20px;
+                }
+
+                .no-result {
+                    font-size: 30px;
+                    text-align: center;
+                }
+
+                .person-container { 
+                    display: flex;
+
+                    .left {
+                        display: flex;
+                        flex-direction: column;
+
+                        .top {
+                            display: flex;
+
+                            .right {
+                                margin-top: 45px;
+                                margin-left: 20px;
+                                display: flex;
+                                flex-direction: column;
+                                div {
+                                    strong {
+                                        font-size: 18px;
+                                    }
+                                    a {
+                                        font-size: 18px;
+                                        cursor: pointer;
+                                        text-decoration: underline;
+                                        &:hover {
+                                            text-decoration: unset;
+                                            color: blue;
+                                        }
+                                    }
+                                }
+                                span {
+                                    margin: 0;
+                                    font-size: 18px;
+                                    
+                                    &:not(:first-child){
+                                        margin-top: 5px;
+                                    }
+                                }
+                            }
+                        }
+                        .chip-container {
+                            margin-top: 20px;
+                            display: flex;
+                            justify-content: center;
+                            .MuiChip-root {
+                                width: fit-content;
+                                border-radius: 2em;
+                                padding: 6px 0;
+                                border: 2px solid yellow;
+                                height: auto;
+                                .MuiAvatar-root {
+                                    width: 30px;
+                                    height: 30px;
+                                    img {
+                                        width: 30px;
+                                        height: 30px;
+                                    }
+                                }
+                                span {
+                                    margin: 0;
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+
+                        .selected-person , .childrens {
+                            width: fit-content;
+
+                            .MuiChip-root {
+                                display: flex;
+                                align-items: center;
+                                border-radius: 2em;
+                                padding: 6px 0;
+                                border: 2px solid yellow;
+                                height: auto;
+                                .MuiAvatar-root {
+                                    width: 30px;
+                                    height: 30px;
+                                    img {
+                                        width: 30px;
+                                        height: 30px;
+                                    }
+                                }
+                                span {
+                                    margin: 0;
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+
+                        label {
+                            margin-top: 20px;
+                            font-size: 20px;
+                            font-weight: bold;
+                            text-align: center;
+                        }
+
+                        .childrens {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-wrap: wrap;
+                            margin-top: 10px;
+                            margin-left: 12px;
+                            width: 100%;
+                            
+                            .MuiChip-root {
+                                margin-right: 1%;
+                                &:nth-child(4n) {
+                                    margin-right: 0;
+                                }
+                                cursor: pointer;
+                                &:hover {
+
+                                    span {
+                                        text-decoration: underline;
+                                    }
+                                }
+                               
+                            }
+                        }
+                    }  
+                    
+                    .person-right {
+                        width: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin-left: 4%;
+                        .person-biography-container {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+
+                            .biography-date {
+                                margin-bottom: 10px;
+                            }
+                            span {
+                                &:not(:first-child){
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .biography-desc {
+                    font-size: 16px;
+                    width: 400px;
+                    max-height: 200px;
+                    overflow: hidden;
+                    overflow-y: scroll;
+                    padding: 10px;
+                    text-align: center;
+                    border: 2px solid yellow;
+                    border-radius: 15px;
+                }
+
+                .no-bold {
+                    font-weight: normal;
+                }
+
+                .biography-date {
+                    margin-top: 20px;
+                    font-size: 20px;
+                }
+            }
+
+            .modal-footer {
+                position: absolute;
+                padding: 0 10px;
+                bottom: 30px;
+                width: fit-content;
+                border: 1px solid yellow;
+                border-radius: 10px;
+                .footer-elements {
+
+                    width: fit-content;
+                    span {
+                        margin: 0 auto;
+                        font-size: 26px;
+                        &:hover {
+                            cursor: pointer;
+                            color: yellow;
+                        }
+                        
+                        &:not(:first-child){
+                            margin-left: 10px;
+                        }   
+                    }
+                }
+            }
+        }
+    }

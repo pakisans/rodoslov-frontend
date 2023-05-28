@@ -3,11 +3,38 @@
     flex-direction: column;
     padding: 35px 60px 0;
 
+    .select-control {
+        .MuiFormLabel-root {
+            font-size: 20px;
+            &.Mui-focused {
+                color: $outline-color;
+                font-weight: 700;
+            }
+        }
+        .MuiOutlinedInput {
+                -webkit-text-fill-color: none !important;
+        }
+        .MuiInputBase-root {
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover, 
+            input:-webkit-autofill:focus, 
+            input:-webkit-autofill:active{
+                transition: background-color 5000s ease-in-out 0s;
+            }
+            &.Mui-focused {
+                fieldset {
+                    border-color: $outline-color;
+                }
+            }
+        }
+    }
+
     .MuiFormControl-root {
         margin-top: 8px;
 
         .text-field-control {
             .MuiFormLabel-root {
+                font-size: 20px;
                 &.Mui-focused {
                     color: $outline-color;
                     font-weight: 700;

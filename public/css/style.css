@@ -1,3 +1,17 @@
+.MuiTreeItem-content {
+  width: 110%;
+}
+.MuiTreeItem-content:hover, .MuiTreeItem-content.Mui-selected {
+  width: 110%;
+}
+.MuiTreeItem-content .MuiTreeItem-iconContainer svg {
+  font-size: 45px !important;
+}
+
+.no-tree-item {
+  display: none !important;
+}
+
 body {
   margin: 0 !important;
   overflow-x: hidden;
@@ -47,6 +61,14 @@ a {
     opacity: 1;
   }
 }
+@keyframes fadeOutOpacitiy {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .MuiFormHelperText-root {
   display: flex;
   justify-content: center;
@@ -72,7 +94,7 @@ a {
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
-  animation-duration: 0.2s;
+  animation-duration: 0.4s;
 }
 @media screen and (min-width: 1441px) {
   .content-container {
@@ -152,7 +174,7 @@ a {
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
-  animation-duration: 0.2s;
+  animation-duration: 0.4s;
   background: rgba(0, 0, 0, 0.5);
 }
 .MuiDataGrid-toolbarContainer .MuiButtonBase-root {
@@ -166,6 +188,10 @@ a {
   transform: translate3d(190px, 232.5px, 0px) !important;
 }
 
+.MuiDataGrid-menuIcon {
+  border-right: 1px solid black;
+}
+
 .MuiDataGrid-columnHeaders {
   background-image: url("/images/header-background.jpeg");
   border-radius: 0 !important;
@@ -177,6 +203,7 @@ a {
 
 .MuiDataGrid-columnHeaderTitleContainer {
   border-right: 1px solid #000;
+  font-size: 18px;
 }
 
 .MuiDataGrid-columnHeader:focus {
@@ -204,7 +231,7 @@ a {
   flex-direction: row;
 }
 
-.flex-align-center, .admin-nav.active .help-panel {
+.flex-align-center, .admin-nav.active .help-panel, .navigation-menu.active .help-panel {
   display: flex;
   align-items: center;
 }
@@ -232,7 +259,7 @@ a {
   justify-content: center;
 }
 
-.flex-column-center-align-center, .admin-nav, .navigation-menu {
+.flex-column-center-align-center, .admin-nav, .navigation-menu.active, .navigation-menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -257,6 +284,13 @@ a {
   font-weight: 400;
   font-style: italic;
 }
+@font-face {
+  font-family: "Western";
+  src: url("/fonts/aeonik/Western.otf") format("opentype"), url("/fonts/aeonik/Western.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
 .welcome-page {
   width: 100%;
   height: 100vh;
@@ -271,7 +305,7 @@ a {
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
-  animation-duration: 0.2s;
+  animation-duration: 0.4s;
   background-color: #000;
   width: 400px;
   border-radius: 30px;
@@ -290,7 +324,7 @@ a {
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
-  animation-duration: 0.2s;
+  animation-duration: 0.4s;
   background-color: #000;
   width: 400px;
   border-radius: 30px;
@@ -311,10 +345,11 @@ a {
   width: 100%;
 }
 .family-page .content-container {
-  padding-top: 20px;
+  padding: 20px 0 20px;
 }
 .family-page .content-container span {
   font-size: 32px;
+  font-family: "NotoSerif";
 }
 .family-page .content-container .family-tabs-container {
   width: 89%;
@@ -340,6 +375,18 @@ a {
 }
 .family-page .content-container .family-tabs-container .family-tabs .family-tab:not(:first-child) {
   margin-left: 10px;
+}
+.family-page .content-container .familija {
+  margin-bottom: 20px;
+}
+.family-page .content-container ul {
+  height: auto;
+}
+.family-page .content-container ul li div .MuiTreeItem-label {
+  font-size: 26px;
+}
+.family-page .content-container ul li ul div div li div .MuiTreeItem-label {
+  font-size: 20px;
 }
 
 .admin-panel {
@@ -375,21 +422,39 @@ a {
   display: none;
   background-color: rgba(255, 255, 255, 0.5);
   width: 12%;
-  height: 200px;
+  height: auto;
   margin-top: 5px;
   margin-left: 5px;
   justify-content: unset;
   z-index: 1;
   position: absolute;
   border-radius: 20px;
+  padding: 10px 0;
 }
 .navigation-menu.active {
-  display: block;
+  z-index: 9999;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.4s;
+}
+.navigation-menu.active .help-panel {
+  width: 100%;
+  justify-content: center;
+}
+.navigation-menu.active .help-panel img {
+  width: 30px;
+  height: 30px;
+}
+.navigation-menu.active .help-panel .logout-icon {
+  transform: rotate(180deg);
 }
 .navigation-menu .nav-item {
   color: rgba(0, 0, 0, 0.7);
   font-family: NotoSerif;
   font-size: 22px;
+  text-align: center;
   margin-top: 10px;
   display: flex;
   justify-content: center;
@@ -417,9 +482,11 @@ a {
 }
 .admin-nav.active {
   display: flex;
-}
-.admin-nav.active .help-panel {
-  margin-top: 10px;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.4s;
 }
 .admin-nav.active .help-panel:hover {
   font-weight: 500;
@@ -440,7 +507,6 @@ a {
   font-family: NotoSerif;
   font-size: 22px;
   display: flex;
-  justify-content: center;
   text-align: center;
 }
 .admin-nav .nav-item:hover {
@@ -469,6 +535,9 @@ a {
     padding: 0 90px;
   }
 }
+.header .nav-bar .MuiTextField-root {
+  margin-left: auto;
+}
 .header .nav-bar .arrow-down {
   width: 20px;
   height: 20px;
@@ -476,6 +545,9 @@ a {
 .header .nav-bar .middle-group {
   display: flex;
   align-items: center;
+}
+.header .nav-bar .middle-group.search-active {
+  margin-left: 215px;
 }
 .header .nav-bar .middle-group img {
   width: 50px;
@@ -494,18 +566,139 @@ a {
     transform: rotateY(360deg);
   }
 }
-.header .nav-bar .header-title {
+.header .nav-bar .middle-group .header-title {
   color: black;
-  font-family: "Aeonik";
+  font-family: "NotoSerif";
   font-size: 32px;
   text-transform: uppercase;
   margin: 0 20px;
+}
+.header .nav-bar .flex-align-center .MuiFormControl-root label.Mui-focused, .header .nav-bar .navigation-menu.active .help-panel .MuiFormControl-root label.Mui-focused, .navigation-menu.active .header .nav-bar .help-panel .MuiFormControl-root label.Mui-focused, .header .nav-bar .admin-nav.active .help-panel .MuiFormControl-root label.Mui-focused, .admin-nav.active .header .nav-bar .help-panel .MuiFormControl-root label.Mui-focused {
+  color: black;
+}
+.header .nav-bar .flex-align-center .MuiFormControl-root .MuiInputAdornment-root, .header .nav-bar .navigation-menu.active .help-panel .MuiFormControl-root .MuiInputAdornment-root, .navigation-menu.active .header .nav-bar .help-panel .MuiFormControl-root .MuiInputAdornment-root, .header .nav-bar .admin-nav.active .help-panel .MuiFormControl-root .MuiInputAdornment-root, .admin-nav.active .header .nav-bar .help-panel .MuiFormControl-root .MuiInputAdornment-root {
+  height: 100%;
+}
+.header .nav-bar .flex-align-center .MuiFormControl-root .MuiInputAdornment-root .MuiSvgIcon-root, .header .nav-bar .navigation-menu.active .help-panel .MuiFormControl-root .MuiInputAdornment-root .MuiSvgIcon-root, .navigation-menu.active .header .nav-bar .help-panel .MuiFormControl-root .MuiInputAdornment-root .MuiSvgIcon-root, .header .nav-bar .admin-nav.active .help-panel .MuiFormControl-root .MuiInputAdornment-root .MuiSvgIcon-root, .admin-nav.active .header .nav-bar .help-panel .MuiFormControl-root .MuiInputAdornment-root .MuiSvgIcon-root {
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+.header .nav-bar .flex-align-center .MuiFormControl-root .MuiInputAdornment-root .MuiSvgIcon-root:hover, .header .nav-bar .navigation-menu.active .help-panel .MuiFormControl-root .MuiInputAdornment-root .MuiSvgIcon-root:hover, .navigation-menu.active .header .nav-bar .help-panel .MuiFormControl-root .MuiInputAdornment-root .MuiSvgIcon-root:hover, .header .nav-bar .admin-nav.active .help-panel .MuiFormControl-root .MuiInputAdornment-root .MuiSvgIcon-root:hover, .admin-nav.active .header .nav-bar .help-panel .MuiFormControl-root .MuiInputAdornment-root .MuiSvgIcon-root:hover {
+  filter: invert(18%) sepia(69%) saturate(7486%) hue-rotate(359deg) brightness(108%) contrast(124%);
+}
+.header .nav-bar .flex-align-center .MuiFormControl-root .MuiInput-root:before, .header .nav-bar .navigation-menu.active .help-panel .MuiFormControl-root .MuiInput-root:before, .navigation-menu.active .header .nav-bar .help-panel .MuiFormControl-root .MuiInput-root:before, .header .nav-bar .admin-nav.active .help-panel .MuiFormControl-root .MuiInput-root:before, .admin-nav.active .header .nav-bar .help-panel .MuiFormControl-root .MuiInput-root:before {
+  color: black;
+}
+.header .nav-bar .flex-align-center .MuiFormControl-root .MuiInput-root:after, .header .nav-bar .navigation-menu.active .help-panel .MuiFormControl-root .MuiInput-root:after, .navigation-menu.active .header .nav-bar .help-panel .MuiFormControl-root .MuiInput-root:after, .header .nav-bar .admin-nav.active .help-panel .MuiFormControl-root .MuiInput-root:after, .admin-nav.active .header .nav-bar .help-panel .MuiFormControl-root .MuiInput-root:after {
+  border: 2px solid black;
 }
 .header .nav-bar .arrow-down:first-child {
   margin-left: 20px;
 }
 .header .nav-bar .arrow-down:last-child {
   margin-right: 20px;
+}
+
+.search-result-container {
+  position: absolute;
+  height: 51vh;
+  width: 100%;
+  background-color: black;
+  z-index: 2;
+  padding: 80px 190px;
+  overflow: hidden;
+}
+@media screen and (min-width: 1441px) {
+  .search-result-container {
+    padding: 40px 240px;
+  }
+}
+.search-result-container .search-result {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% - 380px);
+  height: 100%;
+  overflow-y: scroll;
+}
+.search-result-container .search-result .no-result-text {
+  width: 100%;
+}
+.search-result-container .search-result .no-result-text .paragraph {
+  text-align: center;
+  font-size: 20px;
+  line-height: 28px;
+  color: white;
+}
+@media screen and (min-width: 1441px) {
+  .search-result-container .search-result {
+    width: calc(100% - 480px);
+  }
+}
+.search-result-container .search-result .MuiPaper-root {
+  border: 1px solid goldenrod;
+  background-image: url("/images/biography-bg.webp");
+  background-size: 100% 100%;
+  max-width: 277px;
+  width: 33.33%;
+  margin-bottom: 25px;
+  margin-right: 8%;
+  max-height: 225px;
+}
+.search-result-container .search-result .MuiPaper-root .card-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px;
+  min-height: 58px;
+}
+.search-result-container .search-result .MuiPaper-root .card-content-container .address {
+  font-size: 16px;
+}
+.search-result-container .search-result .MuiPaper-root .card-content-container .address a {
+  font-size: 14px;
+  text-decoration: underline;
+}
+.search-result-container .search-result .MuiPaper-root .card-content-container .address a:hover {
+  text-decoration: unset;
+  color: blue;
+}
+.search-result-container .search-result .MuiPaper-root .card-content-container .family {
+  font-size: 16px;
+  margin-top: 15px;
+}
+.search-result-container .search-result .MuiPaper-root .MuiCollapse-root {
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+.search-result-container .search-result .MuiPaper-root .MuiCollapse-root .MuiCollapse-wrapper .MuiCollapse-wrapperInner .MuiCardContent-root {
+  overflow-y: scroll;
+}
+.search-result-container .search-result .MuiPaper-root .MuiCollapse-root .MuiCollapse-wrapper .MuiCollapse-wrapperInner .MuiCardContent-root .MuiTypography-root {
+  max-height: 150px;
+}
+.search-result-container .search-result .MuiPaper-root .MuiCardHeader-root .MuiCardHeader-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+}
+.search-result-container .search-result .MuiPaper-root .MuiCardHeader-root .MuiCardHeader-subheader {
+  font-size: 16px;
+  color: black;
+}
+.search-result-container .search-result .MuiPaper-root:nth-child(3n) {
+  margin-right: 0;
+}
+@media screen and (min-width: 1441px) {
+  .search-result-container .search-result .MuiPaper-root {
+    width: 22%;
+    margin-right: 7%;
+  }
+  .search-result-container .search-result .MuiPaper-root:nth-child(3n) {
+    margin-right: 7%;
+  }
+  .search-result-container .search-result .MuiPaper-root:nth-child(4n) {
+    margin-right: 0;
+  }
 }
 
 .middle-container {
@@ -574,8 +767,30 @@ a {
   flex-direction: column;
   padding: 35px 60px 0;
 }
+.drawer-form .select-control .MuiFormLabel-root {
+  font-size: 20px;
+}
+.drawer-form .select-control .MuiFormLabel-root.Mui-focused {
+  color: rgb(207, 152, 0);
+  font-weight: 700;
+}
+.drawer-form .select-control .MuiOutlinedInput {
+  -webkit-text-fill-color: none !important;
+}
+.drawer-form .select-control .MuiInputBase-root input:-webkit-autofill,
+.drawer-form .select-control .MuiInputBase-root input:-webkit-autofill:hover,
+.drawer-form .select-control .MuiInputBase-root input:-webkit-autofill:focus,
+.drawer-form .select-control .MuiInputBase-root input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+.drawer-form .select-control .MuiInputBase-root.Mui-focused fieldset {
+  border-color: rgb(207, 152, 0);
+}
 .drawer-form .MuiFormControl-root {
   margin-top: 8px;
+}
+.drawer-form .MuiFormControl-root .text-field-control .MuiFormLabel-root {
+  font-size: 20px;
 }
 .drawer-form .MuiFormControl-root .text-field-control .MuiFormLabel-root.Mui-focused {
   color: rgb(207, 152, 0);
@@ -628,7 +843,7 @@ a {
   padding-top: 60px;
 }
 .drawer .drawer-header span {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .text-control .text-field-control .MuiInput-root {
@@ -658,6 +873,229 @@ a {
 .photo-control .MuiAvatar-root {
   width: 100px;
   height: 100px;
+}
+
+.biography-modal {
+  justify-content: center;
+  display: flex;
+  width: 1060px;
+  margin: 0 auto;
+  height: auto;
+  top: 7% !important;
+  bottom: 6% !important;
+  border-radius: 10px;
+}
+.biography-modal .MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0);
+}
+.biography-modal .main-modal {
+  width: 100%;
+  display: block;
+  padding: 0px 20px 20px 40px;
+  background-image: url("/images/biography-bg.webp");
+  background-size: 100% 100%;
+  border-radius: 10px;
+}
+.biography-modal .main-modal .close {
+  width: fit-content;
+  font-size: 32px;
+  cursor: pointer;
+  margin-left: auto;
+}
+.biography-modal .main-modal .close:hover {
+  filter: invert(21%) sepia(96%) saturate(7431%) hue-rotate(358deg) brightness(107%) contrast(111%);
+}
+.biography-modal .main-modal .modal-body {
+  display: flex;
+  flex-direction: column;
+}
+.biography-modal .main-modal .modal-body .full-name {
+  font-size: 32px;
+}
+.biography-modal .main-modal .modal-body .biography {
+  font-size: 30px;
+}
+.biography-modal .main-modal .modal-body .left .top span:not(:first-child), .biography-modal .main-modal .modal-body .left .top div:not(:first-child) {
+  margin-top: 10px;
+}
+.biography-modal .main-modal .modal-body .label {
+  font-size: 20px;
+  font-weight: bold;
+}
+.biography-modal .main-modal .modal-body .image {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.biography-modal .main-modal .modal-body .no-result {
+  font-size: 30px;
+  text-align: center;
+}
+.biography-modal .main-modal .modal-body .person-container {
+  display: flex;
+}
+.biography-modal .main-modal .modal-body .person-container .left {
+  display: flex;
+  flex-direction: column;
+}
+.biography-modal .main-modal .modal-body .person-container .left .top {
+  display: flex;
+}
+.biography-modal .main-modal .modal-body .person-container .left .top .right {
+  margin-top: 45px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.biography-modal .main-modal .modal-body .person-container .left .top .right div strong {
+  font-size: 18px;
+}
+.biography-modal .main-modal .modal-body .person-container .left .top .right div a {
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.biography-modal .main-modal .modal-body .person-container .left .top .right div a:hover {
+  text-decoration: unset;
+  color: blue;
+}
+.biography-modal .main-modal .modal-body .person-container .left .top .right span {
+  margin: 0;
+  font-size: 18px;
+}
+.biography-modal .main-modal .modal-body .person-container .left .top .right span:not(:first-child) {
+  margin-top: 5px;
+}
+.biography-modal .main-modal .modal-body .person-container .left .chip-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.biography-modal .main-modal .modal-body .person-container .left .chip-container .MuiChip-root {
+  width: fit-content;
+  border-radius: 2em;
+  padding: 6px 0;
+  border: 2px solid yellow;
+  height: auto;
+}
+.biography-modal .main-modal .modal-body .person-container .left .chip-container .MuiChip-root .MuiAvatar-root {
+  width: 30px;
+  height: 30px;
+}
+.biography-modal .main-modal .modal-body .person-container .left .chip-container .MuiChip-root .MuiAvatar-root img {
+  width: 30px;
+  height: 30px;
+}
+.biography-modal .main-modal .modal-body .person-container .left .chip-container .MuiChip-root span {
+  margin: 0;
+  font-size: 16px;
+}
+.biography-modal .main-modal .modal-body .person-container .left .selected-person, .biography-modal .main-modal .modal-body .person-container .left .childrens {
+  width: fit-content;
+}
+.biography-modal .main-modal .modal-body .person-container .left .selected-person .MuiChip-root, .biography-modal .main-modal .modal-body .person-container .left .childrens .MuiChip-root {
+  display: flex;
+  align-items: center;
+  border-radius: 2em;
+  padding: 6px 0;
+  border: 2px solid yellow;
+  height: auto;
+}
+.biography-modal .main-modal .modal-body .person-container .left .selected-person .MuiChip-root .MuiAvatar-root, .biography-modal .main-modal .modal-body .person-container .left .childrens .MuiChip-root .MuiAvatar-root {
+  width: 30px;
+  height: 30px;
+}
+.biography-modal .main-modal .modal-body .person-container .left .selected-person .MuiChip-root .MuiAvatar-root img, .biography-modal .main-modal .modal-body .person-container .left .childrens .MuiChip-root .MuiAvatar-root img {
+  width: 30px;
+  height: 30px;
+}
+.biography-modal .main-modal .modal-body .person-container .left .selected-person .MuiChip-root span, .biography-modal .main-modal .modal-body .person-container .left .childrens .MuiChip-root span {
+  margin: 0;
+  font-size: 16px;
+}
+.biography-modal .main-modal .modal-body .person-container .left label {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.biography-modal .main-modal .modal-body .person-container .left .childrens {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-left: 12px;
+  width: 100%;
+}
+.biography-modal .main-modal .modal-body .person-container .left .childrens .MuiChip-root {
+  margin-right: 1%;
+  cursor: pointer;
+}
+.biography-modal .main-modal .modal-body .person-container .left .childrens .MuiChip-root:nth-child(4n) {
+  margin-right: 0;
+}
+.biography-modal .main-modal .modal-body .person-container .left .childrens .MuiChip-root:hover span {
+  text-decoration: underline;
+}
+.biography-modal .main-modal .modal-body .person-container .person-right {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 4%;
+}
+.biography-modal .main-modal .modal-body .person-container .person-right .person-biography-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.biography-modal .main-modal .modal-body .person-container .person-right .person-biography-container .biography-date {
+  margin-bottom: 10px;
+}
+.biography-modal .main-modal .modal-body .person-container .person-right .person-biography-container span:not(:first-child) {
+  margin-bottom: 10px;
+}
+.biography-modal .main-modal .modal-body .biography-desc {
+  font-size: 16px;
+  width: 400px;
+  max-height: 200px;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid yellow;
+  border-radius: 15px;
+}
+.biography-modal .main-modal .modal-body .no-bold {
+  font-weight: normal;
+}
+.biography-modal .main-modal .modal-body .biography-date {
+  margin-top: 20px;
+  font-size: 20px;
+}
+.biography-modal .main-modal .modal-footer {
+  position: absolute;
+  padding: 0 10px;
+  bottom: 30px;
+  width: fit-content;
+  border: 1px solid yellow;
+  border-radius: 10px;
+}
+.biography-modal .main-modal .modal-footer .footer-elements {
+  width: fit-content;
+}
+.biography-modal .main-modal .modal-footer .footer-elements span {
+  margin: 0 auto;
+  font-size: 26px;
+}
+.biography-modal .main-modal .modal-footer .footer-elements span:hover {
+  cursor: pointer;
+  color: yellow;
+}
+.biography-modal .main-modal .modal-footer .footer-elements span:not(:first-child) {
+  margin-left: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux";
 import BiographyForm from "../../Components/Forms/BiographyForm"
 import DataManagmentMode from "../../Constants/DataManagmentMode";
+import NotificationActionContext from "../../Context/NotificationActionWrapper";
 import strings from "../../localization";
 import { addBiography } from "../../Services/Biography/BiographyService";
 import { getAllSheets } from "../../Services/Sheets/SheetsService";
@@ -15,6 +16,7 @@ const AddBioraphy = ({setDataManagementMode}) => {
     const {handleSubmit, setValue, getValues, control, formState: {errors}} = form;
     const dispatch = useDispatch();
     const [sheets, setSheets] = useState([]);
+    const {showNotification} = useContext(NotificationActionContext);
 
     useEffect(() => {
         dispatch(setDataManagementTitle(strings.pages.biography.addBiography));
@@ -32,11 +34,15 @@ const AddBioraphy = ({setDataManagementMode}) => {
 
     const onSubmit = (data) => {
         addBiography(data).then(res => {
-            if(!res || !res.ok) return;
+            if(!res || !res.ok){
+                showNotification(strings.common.errorAdding, 'error');
+                return;
+            }
         })
         .finally(() => {
             setDataManagementMode(DataManagmentMode.VIEW);
             dispatch(setIsReadyForFetch());
+            showNotification(strings.common.itemAdded);
         })
     }
 

@@ -1,25 +1,26 @@
-import { Button, Tab, Tabs } from "@mui/material";
+import { Tab, Tabs } from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
+import Tree from "../../Components/DataDiagram/Tree";
 import strings from "../../localization";
 import { getFamilies } from "../../Services/Family/FamilyService";
-import { getSheets } from "../../Services/Sheets/SheetsService";
+import { getRootElement } from "../../Services/Structure/StructureService";
 
 const Families = () => {
     const [families, setFamilies] = useState([]);
-    const [isButtonActive, setIsButtonAcitve] = useState(false);
     const [activeTab, setActiveTab] = useState(0);
     const [tabItem, setTabItem] = useState({});
-    const [sheets, setSheets] = useState([]);
+    const [rootElement, setRootElement] = useState({});
 
     useEffect(() => {
         fetch();
     },[])
 
     useEffect(() => {
-        getSheets({familyId:tabItem.id}).then(res => {
-            if(!res||!res.ok) return;
-            setSheets(res.data.result);
+      getRootElement({familyId:tabItem.id}).then(res => {
+            if(!res || !res.ok) return;
+
+            setRootElement({...res.data.root[0], children:res?.data?.childrens?.length ? res?.data?.childrens : undefined});
         })
     },[tabItem])
 
@@ -39,6 +40,7 @@ const Families = () => {
         getFamilies().then(res => {
             if(!res || !res.ok) return;
             setFamilies(res.data.result);
+            setTabItem(res.data.result[0])
         })
     }
 
@@ -50,6 +52,8 @@ const Families = () => {
                     {renderFamilies(families)}
                 </Tabs>
             </div>
+            <span className="familija">{tabItem?.familyName}</span>
+            {rootElement.id ? <Tree root={rootElement} setRootElement={setRootElement}></Tree> : <span className="no-structure-message">{strings.pages.family.noStructureMessage}</span>}
         </div>
     </div>
 }

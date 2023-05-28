@@ -13,6 +13,11 @@
         }
        
         @extend .flex-space-between-align-center;
+
+        .MuiTextField-root {
+            margin-left: auto;
+        }
+        
         .arrow-down {
             width: 20px;
             height: 20px;
@@ -20,6 +25,10 @@
         .middle-group {
             display: flex;
             align-items: center;
+
+            &.search-active {
+                margin-left: 215px;
+            }
             img {
                 width: 50px;
                 height: 50px;
@@ -34,15 +43,44 @@
                 0% { transform: rotateY(0deg); }
                 100% { transform: rotateY(360deg); }
             }
+            .header-title {
+                color: black;
+                font-family: 'NotoSerif';
+                font-size: 32px;
+                text-transform: uppercase;
+                margin: 0 20px;
+
+            }
         }
 
-        .header-title {
-            color: black;
-            font-family: 'Aeonik';
-            font-size: 32px;
-            text-transform: uppercase;
-            margin: 0 20px;
+        .flex-align-center {
+            .MuiFormControl-root {
+                label {
+                    &.Mui-focused {
+                        color: black;
+                    }
+                }
+                .MuiInputAdornment-root {
+                    height: 100%;
+                    .MuiSvgIcon-root {
+                        cursor: pointer;
+                        margin-bottom: 18px;
+                        &:hover {
+                            filter: invert(18%) sepia(69%) saturate(7486%) hue-rotate(359deg) brightness(108%) contrast(124%);
+                        }
+                    }
+                }
+                .MuiInput-root {
+                    &:before {
+                        color: black;
+                    }
+                    &:after {
+                        border: 2px solid black;
+                    }
+                }
+            }
         }
+
     }
 
     .nav-bar .arrow-down:first-child {
@@ -50,5 +88,129 @@
     }
     .nav-bar .arrow-down:last-child {
         margin-right: 20px;
+    }
+}
+
+.search-result-container {
+    position: absolute;
+    height: 51vh;
+    width: 100%;
+    background-color: black;
+    z-index: 2;
+    padding: 80px 190px;
+    overflow: hidden;
+
+    @media screen and (min-width: $break-xxl) {
+        padding: 40px 240px;
+    }
+    
+    .search-result {
+        display: flex;
+        // justify-content: space-between;
+        flex-wrap: wrap;
+        width: calc(100% - 380px);
+        height: 100%;
+        overflow-y: scroll;
+
+        .no-result-text {
+            width: 100%;
+            // padding: 0 120px;
+            .paragraph {
+                text-align: center;
+                font-size: 20px;
+                line-height: 28px;
+                color: white;
+            }
+        }
+
+        @media screen and (min-width: $break-xxl) {
+            width: calc(100% - 480px);
+
+        }
+
+        .MuiPaper-root {
+            border: 1px solid goldenrod;
+            background-image: url('/images/biography-bg.webp');
+            background-size: 100% 100%;
+            max-width: 277px;
+            width: 33.33%;
+            margin-bottom: 25px;
+            margin-right: 8%;
+            max-height: 225px;
+
+            .card-content-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 16px;
+                min-height: 58px;
+                .address {
+                    font-size: 16px;
+
+                    a {
+                        font-size: 14px;
+                        text-decoration: underline;
+                        &:hover {
+                            text-decoration: unset;
+                            color: blue;
+                        }
+                    }
+                }
+
+                .family {
+                    font-size: 16px;
+                    margin-top: 15px;
+                }
+            }
+
+            .MuiCollapse-root {
+                padding-bottom: 30px;
+                overflow: hidden;
+
+                .MuiCollapse-wrapper {
+                    .MuiCollapse-wrapperInner {
+                        .MuiCardContent-root {
+                            overflow-y: scroll;
+                            .MuiTypography-root {
+                                max-height: 150px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .MuiCardHeader-root {
+                .MuiCardHeader-title {
+                    font-weight: bold;
+                    font-size: 18px;
+                    color: black;
+                }
+                .MuiCardHeader-subheader  {
+                    font-size: 16px;
+                    // font-weight: bold;
+                    color: black;
+                }
+            }
+
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+
+            @media screen and (min-width: $break-xxl) {
+                width: 22%;
+                margin-right: 7%;
+                &:nth-child(3n) {
+                    margin-right: 7%;
+                }
+
+                &:nth-child(4n) {
+                    margin-right: 0;
+                }
+    
+            }
+            
+           
+
+        }
     }
 }

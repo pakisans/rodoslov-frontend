@@ -18,3 +18,19 @@ $white: #fff;
 
 $hover-color: rgba(208, 169, 11, 0.5);
 $outline-color: rgb(207, 152, 0);
+
+.MuiTreeItem-content {
+    width: 110%;
+    &:hover , &.Mui-selected {
+        width: 110%;
+    }
+    .MuiTreeItem-iconContainer {
+        svg {
+            font-size: 45px !important;
+        }
+    }
+}
+
+.no-tree-item {
+    display: none !important;
+}
