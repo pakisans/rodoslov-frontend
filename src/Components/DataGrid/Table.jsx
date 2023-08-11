@@ -12,6 +12,7 @@ import HelpDialog from '../Dialogs/HelpDialog';
 import ActionCell from './ActionCell';
 import {MdAddCircleOutline} from 'react-icons/md';
 import NotificationActionContext from '../../Context/NotificationActionWrapper';
+
 const TableComponent = ({tableComponents, tableData, deleteItem, addPage, editPage}) => {
     const dispatch = useDispatch();
     const dataManagementTitle = useSelector((state) => state.dataManagement.title);
@@ -75,7 +76,7 @@ const TableComponent = ({tableComponents, tableData, deleteItem, addPage, editPa
         }
 
         deleteItem(selectedItemId).then(res => {
-            if (res.response.status == 400){
+            if (res?.status == 400){
                 setShowDeleteDialog(false);
                 setSelectedItemId(null);
                 showNotification(strings.common.errorDeletingParent,'error');

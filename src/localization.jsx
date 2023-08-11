@@ -10,7 +10,7 @@ let strings = new LocalizedStrings({
             adminPanel: {
                 ttitle: 'Admin',
             },
-            navigation: 'Navigation',
+            navigation: 'Navigacija',
             title: 'Rodoslov',
             panel: 'User panel'
         },
