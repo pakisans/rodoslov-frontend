@@ -10,6 +10,7 @@ import { getBiographyByNode } from '../../Services/Biography/BiographyService';
 import BiographyModal from '../Modals/BiographyModal';
 import { useEffect } from 'react';
 import { Collapse } from '@mui/material';
+import { compareDatesAsc } from '../../Utils/DataUtil';
 
 const Tree = ({root, setRootElement}) => {
   const [trigger, setTrigger] = useState(false);
@@ -27,7 +28,7 @@ const Tree = ({root, setRootElement}) => {
     function addChildObject(obj, id, arrayOfChildrens) {
       for (let key in obj) {
         if (typeof obj[key] === 'object') {
-          addChildObject(obj[key], id, arrayOfChildrens);
+          addChildObject(obj[key], id, arrayOfChildrens.sort(compareDatesAsc));
           if (obj[key].id === id) {
             obj[key].children = arrayOfChildrens;
           }
@@ -47,7 +48,7 @@ const Tree = ({root, setRootElement}) => {
   }
 
   const renderTree = (nodes, item) => {
-    return <div style={{display: 'flex'}}>
+    return <div style={{display: 'flex', position: 'relative'}}>
       <TreeItem TransitionComponent={TransitionComponent} onClick={() => {
         if(item >= 0){
           fetchChildrens(nodes, items);

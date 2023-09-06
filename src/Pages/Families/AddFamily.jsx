@@ -21,17 +21,23 @@ const AddFamily = (props) => {
     })
 
     const onSubmit = (data) => {
-        addFamilies(data).then(res => {
-            if(!res || !res.ok) {
-                showNotification(strings.common.errorAdding, 'error');
-                return;
-            }
-        })
-        .finally(() => {
-            props.setDataManagementMode(DataManagmentMode.VIEW);
-            dispatch(setIsReadyForFetch());
-            showNotification(strings.common.itemAdded)
-        })
+        let shouldExecuteFinally = true;
+
+        addFamilies(data)
+            .then(res => {
+                if (!res.ok) {
+                    shouldExecuteFinally = false;
+                    showNotification(strings.common.errorAdding, 'error');
+                    return;
+                }
+            })
+            .finally(() => {
+                if (shouldExecuteFinally) {
+                    props.setDataManagementMode(DataManagmentMode.VIEW);
+                    dispatch(setIsReadyForFetch());
+                    showNotification(strings.common.itemAdded);
+                }
+            });
     }
 
     return <FamilyForm onCancel={() => props.setDataManagementMode(DataManagmentMode.VIEW)} control={control} formRules={familyFormRules} onSubmit={handleSubmit(onSubmit)} errors={errors} />

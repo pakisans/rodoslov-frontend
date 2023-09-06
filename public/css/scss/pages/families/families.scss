@@ -63,3 +63,11 @@
         }
     }
 }
+.MuiTreeView-root {
+
+    max-width: fit-content !important;
+
+}
+.MuiCollapse-wrapperInner {
+    min-width: max-content;
+}

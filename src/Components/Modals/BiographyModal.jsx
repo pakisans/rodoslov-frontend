@@ -96,7 +96,7 @@ const BiographyModal = ({childrens, setTrigger, trigger, matchedPerson}) => {
                             <span><strong>{strings.pages.sheets.firstName}</strong>:{children?.sheets?.firstName}</span>
                             <span><strong>{strings.pages.sheets.family}</strong>:{children?.sheets?.family?.familyName}</span>
                             <span><strong>{strings.pages.sheets.dateOfBirth}</strong>:{renderFormDate(children?.sheets?.dateOfBirth)}</span>
-                            <span><strong>{strings.pages.sheets.dateOfDeath}</strong>:{renderFormDate(children?.sheets?.dateOfDeath) ? renderFormDate(children?.sheets?.dateOfDeath) : '/'}</span>
+                            {children?.sheets?.dateOfDeath && <span><strong>{strings.pages.sheets.dateOfDeath}</strong>:{renderFormDate(children?.sheets?.dateOfDeath) ? renderFormDate(children?.sheets?.dateOfDeath) : '/'}</span>}
                             <div><strong>{strings.pages.sheets.address}</strong>:<a target={'_blank'} href={`https://maps.google.com/?q=${children?.sheets?.address}`}>{children?.sheets?.address}</a></div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@ const BiographyModal = ({childrens, setTrigger, trigger, matchedPerson}) => {
                         {children?.biographyDescription ? <span className="label">{strings.pages.biography.title}</span> : <></>}
                         <div className="biography-date">{`${strings.pages.biography.dateFrom} ${renderFormDate(children?.dateFrom)} ${children?.dateTo ? strings.pages.biography.dateEnd : ''} ${children?.dateTo ? renderFormDate(children?.dateTo) : ''}`}</div>
                         {children?.biographyDescription ? <span className="biography-desc">{children?.biographyDescription}</span> : <></>}
-                        <span className="label" dangerouslySetInnerHTML={{__html: `${strings.pages.biography.spouseInformation} : ${children?.spouseInformation ? `<span class='no-bold'>${children?.spouseInformation}</span>` : <AiOutlineClose size={30} color='red' />}`}}></span>
+                        <span className="label spouse-info">{strings.pages.biography.spouseInformation} : {children?.spouseInformation ? children?.spouseInformation : <AiOutlineClose size={30} color='red' />}</span>
                         {children?.graveMarker ? <span className="label">{strings.pages.biography.graveMarker} : <span className="no-bold">{children?.graveMarker}</span></span> : <></>}
                     </div>
                     

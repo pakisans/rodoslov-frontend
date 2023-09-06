@@ -31,7 +31,9 @@ const DateControl = ({control, value, setValue, size, label, name, rules, minDat
                             label={label}
                             inputFormat="dd/MM/yyyy"
                             value={date}
-                            minDate={minDate}
+                            // minDate={minDate}
+                            minDate={new Date(100, 0, 1)}
+                            maxDate={new Date()}
                             mask="__/__/____"
                             onChange={(date) => {
                                 if (field?.onChange) {

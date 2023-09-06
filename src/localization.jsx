@@ -54,16 +54,16 @@ let strings = new LocalizedStrings({
                 biographyDescription: 'Opis biografije',
                 graveMarker: 'Grobna oznaka',
                 spouseInformation: 'Supruznik',
-                sheet: 'List',
+                sheet: 'Osoba',
                 noResult: 'Izabrana osoba trenutno nema upisanu biografiju u bazu.',
                 childrens: 'Deca',
                 parent: 'Roditelj',
                 slibings: 'Braca/Sestre'
             },
             sheets: {
-                pageTitle: 'Listovi',
-                addSheet: 'Dodavanje lista',
-                editSheet: 'Izmena lista',
+                pageTitle: 'Osobe',
+                addSheet: 'Dodavanje osobe',
+                editSheet: 'Izmena osobe',
                 firstName: 'Ime',
                 isStructure: 'Ima strukturu',
                 dateOfBirth: 'Datum rodjenja',
@@ -129,14 +129,14 @@ let strings = new LocalizedStrings({
                     photo: 'Slika'
                 },
                 biography: {
-                    list: 'List',
+                    list: 'Osoba',
                     dateFrom:'Vazi od',
                     dateTo:'Vazi do',
                     whereIs:'Gde je bio',
                     biographyDescription: 'Opis biografije',
                     graveMarker:'Grobna oznaka',
                     spouseInformation: 'Supruznik',
-                    sheet: 'List'
+                    sheet: 'Osoba'
                 }
             },
             dataGrid: {
@@ -155,7 +155,7 @@ let strings = new LocalizedStrings({
                 adminTitle: 'Administracija',
                 entities: {
                     family: 'Familije',
-                    sheets: 'Listovi',
+                    sheets: 'Osobe',
                     biography: 'Biografije',
                     structure: 'Struktura'
                 }
@@ -303,7 +303,7 @@ let strings = new LocalizedStrings({
                     photo: 'Photo'
                 },
                 biography: {
-                    list: 'List',
+                    list: 'Osoba',
                     dateFrom: 'Valid from',
                     dateTo: 'Valid to',
                     whereIs: 'Where he/she was',

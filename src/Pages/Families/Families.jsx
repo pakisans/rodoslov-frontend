@@ -5,6 +5,7 @@ import Tree from "../../Components/DataDiagram/Tree";
 import strings from "../../localization";
 import { getFamilies } from "../../Services/Family/FamilyService";
 import { getRootElement } from "../../Services/Structure/StructureService";
+import { compareDatesAsc } from "../../Utils/DataUtil";
 
 const Families = () => {
     const [families, setFamilies] = useState([]);
@@ -20,7 +21,7 @@ const Families = () => {
       getRootElement({familyId:tabItem.id}).then(res => {
             if(!res || !res.ok) return;
 
-            setRootElement({...res.data.root[0], children:res?.data?.childrens?.length ? res?.data?.childrens : undefined});
+            setRootElement({...res.data.root[0], children:res?.data?.childrens?.length ? res?.data?.childrens.sort(compareDatesAsc) : undefined});
         })
     },[tabItem])
 

@@ -7,6 +7,7 @@
         top: 7% !important;
         bottom: 6% !important;
         border-radius: 10px;
+        outline: unset;
     
         .MuiBackdrop-root{
             background-color: rgba(0, 0, 0, 0);
@@ -56,6 +57,11 @@
                 .label {
                     font-size: 20px;
                     font-weight: bold;
+                }
+
+                .spouse-info {
+                    display: flex;
+                    align-items: center;
                 }
     
                 .image {
@@ -205,6 +211,7 @@
 
                             .biography-date {
                                 margin-bottom: 10px;
+
                             }
                             span {
                                 &:not(:first-child){
@@ -217,8 +224,10 @@
 
                 .biography-desc {
                     font-size: 16px;
+                    line-height: 24px;
                     width: 400px;
-                    max-height: 200px;
+                    font-weight: 600;
+                    max-height: 400px;
                     overflow: hidden;
                     overflow-y: scroll;
                     padding: 10px;

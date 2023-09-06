@@ -7,7 +7,7 @@ export const renderDate = (item) => {
 }
 
 export const renderFormDate = (item) => {
-    if(!item) return null;
+    if(!item) return '';
 
     return new Date(item).toLocaleDateString();
 }
