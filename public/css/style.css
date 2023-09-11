@@ -611,7 +611,6 @@ a {
   position: absolute;
   height: 51vh;
   display: flex;
-  justify-content: center;
   width: 100%;
   background-color: black;
   z-index: 2;
